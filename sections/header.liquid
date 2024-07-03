@@ -202,7 +202,9 @@
         endif
       endif
     %}
-
+ {% if section.setting.menu == blank %}
+   <span class="h2 header-text">{{ section.settings.headertext }}</span>
+{% endif %}
     {%- if section.settings.logo_position == 'middle-center' -%}
       {%- if request.page_type == 'index' -%}
         <h1 class="header__heading">
@@ -481,7 +483,6 @@
   "default": "Default logo text",
   "label": "Logo Text"
 },
-
     {
       "type": "select",
       "id": "logo_position",
@@ -534,6 +535,13 @@
       "label": "t:sections.header.settings.menu_type_desktop.label",
       "info": "t:sections.header.settings.menu_type_desktop.info"
     },
+     {
+  "type": "inline_richtext",
+  "id": "headertext",
+  "default": "Header text",
+  "label": "Header Text"
+},
+    
     {
       "type": "select",
       "id": "sticky_header_type",
