@@ -350,7 +350,8 @@
         {%- endcase -%}
       {%- endfor -%}
        {% if section.settings.headerbtnlabel != blank %}
-    <!-- <button class="header-btn btn animatedbutton">{{ section.settings.headerbtnlabel }}<span><img src="https://cdn.shopify.com/s/files/1/0885/9539/8958/files/right-arrow.png?v=1720035859" class="arrow-icon"></span></button> -->
+    <button class="header-btn btn animatedbutton">{{ section.settings.headerbtnlabel }}</button>
+         <!-- <span><img src="https://cdn.shopify.com/s/files/1/0885/9539/8958/files/right-arrow.png?v=1720035859" class="arrow-icon"></span> -->
          {% else %}
          <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link focus-inset" id="cart-icon-bubble">
         {%- liquid
