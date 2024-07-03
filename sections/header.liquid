@@ -311,7 +311,7 @@
       {%- endfor -%}
       
     <button class="header-btn btn">{{ section.settings.headerbtnlabel }}</button>
-      {% if section.settings.headerbtnlabel  != null %}
+      {% if section.settings.headerbtnlabel  == null %}
       <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link focus-inset" id="cart-icon-bubble">
         {%- liquid
           if cart == empty
