@@ -22,6 +22,13 @@
   body, p, a, h1, h2, h3, h4, h5, h6, span, div, li, ul, ol, blockquote, pre, code, button {
     font-family: 'Jost', sans-serif !important;
 }
+  button.header-btn.btn {
+    padding: 15px 33px;
+    border: none !important;
+    background: #FFF544;
+    font-weight: 500;
+    text-align: center;
+}
   a.header__heading-link.link.link--text.focus-inset span {
     font-weight: 600;
     color: #000;
@@ -311,7 +318,7 @@
         {%- endcase -%}
       {%- endfor -%}
        {% if section.settings.headerbtnlabel != blank %}
-    <button class="header-btn btn">{{ section.settings.headerbtnlabel }}</button>
+    <button class="header-btn btn animatedbutton">{{ section.settings.headerbtnlabel }}</button>
          {% else %}
          <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link focus-inset" id="cart-icon-bubble">
         {%- liquid
