@@ -307,7 +307,9 @@
             {% render block %}
         {%- endcase -%}
       {%- endfor -%}
-    <button class="header-btn btn">{{ section.setting.headerbutton }}</button>
+      
+    <button class="header-btn btn">{{ section.setting.headerbtnlabel }}</button>
+      {% if section.setting.headerbtnlabel != null %}
       <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link focus-inset" id="cart-icon-bubble">
         {%- liquid
           if cart == empty
@@ -326,6 +328,7 @@
           </div>
         {%- endif -%}
       </a>
+      {% endif %}
     </div>
   </header>
 </{% if section.settings.sticky_header_type != 'none' %}sticky-header{% else %}div{% endif %}>
@@ -556,6 +559,13 @@
   "default": "Header text",
   "label": "Header Text"
 },
+    {
+          "type": "text",
+          "id": "headerbtnlabel",
+          "default": "Header Button",
+          "label": "Button Label",
+          "info": "t:sections.image-banner.blocks.buttons.settings.button_label_1.info"
+        },
     
     {
       "type": "select",
