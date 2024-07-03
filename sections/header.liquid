@@ -180,7 +180,12 @@
                 }}
               </div>
             {%- else -%}
-              <span class="h2">{{ shop.name }}{{ section.settings.logotext }}</span>
+              
+              {% if section.settings.logotext != null  %}
+                 <span class="h2"> {{ section.settings.logotext }}</span>
+            {% else %}
+                  <span class="h2">{{ shop.name }}</span>
+                {% endif %}
             {%- endif -%}
           </a>
       {%- if request.page_type == 'index' -%}
