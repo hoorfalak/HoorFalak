@@ -435,6 +435,13 @@
                           </quantity-popover>
                         </td>
                       </tr>
+                        <tr>
+                           {%- for option in item.options_with_values -%}
+                                  {% if option.value contains 'Black' %}
+                                    <p>gggg</p>
+                                    {% endif %}
+                          {% endfor %}
+                        </tr>
                     {%- endfor -%}
                   </tbody>
                 </table>
