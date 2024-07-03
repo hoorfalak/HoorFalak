@@ -40,7 +40,6 @@
       assign ratio = 1
     endif
   -%}
-   {%- assign product_form_id = 'product-form-' | append: section.id -%}
   <div class="card-wrapper product-card-wrapper underline-links-hover">
     <div
       class="
@@ -467,13 +466,6 @@
                           <div
                             class="quick-add__product-media"
                           >
-                            {%- render 'buy-buttons',
-                  block: block,
-                  product: product,
-                  product_form_id: product_form_id,
-                  section_id: section.id,
-                  show_pickup_availability: true
-                -%}
                             <div class="quick-add__product-container global-media-settings">
                               {% comment %}theme-check-disable ImgLazyLoading{% endcomment %}
                               <img
