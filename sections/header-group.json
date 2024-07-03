@@ -44,7 +44,7 @@
         "menu": "",
         "menu_type_desktop": "dropdown",
         "headertext": "Find the ideal gift for your loved ones.",
-        "headerbtnlabel": "CHOOSE GIFT",
+        "headerbtnlabel": "",
         "sticky_header_type": "on-scroll-up",
         "show_line_separator": true,
         "color_scheme": "scheme-1",
