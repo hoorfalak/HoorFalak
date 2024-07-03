@@ -38,7 +38,7 @@
     "header": {
       "type": "header",
       "settings": {
-        "logotext": "<strong>TISSO VISON<\/strong>",
+        "logotext": "TISSO VISON",
         "logo_position": "middle-left",
         "menu": "main-menu",
         "menu_type_desktop": "dropdown",
