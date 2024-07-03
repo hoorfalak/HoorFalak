@@ -309,7 +309,7 @@
             {% render block %}
         {%- endcase -%}
       {%- endfor -%}
-       {% if section.settings.headerbtnlabel  != null %}
+       {% if section.settings.headerbtnlabel != blank %}
     <button class="header-btn btn">{{ section.settings.headerbtnlabel }}</button>
          {% else %}
          <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link focus-inset" id="cart-icon-bubble">
