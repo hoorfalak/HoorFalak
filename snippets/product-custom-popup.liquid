@@ -431,11 +431,11 @@
   <form class="product-form" action="/cart/add" method="post" enctype="multipart/form-data">
     {% if card_product.variants.size > 1 %}
       <div class="variant-selectors">
-        <label for="variant-select">Variants:</label>
+        <label for="variant-select">Size</label>
         <select name="id" id="variant-select">
-          {% assign colors = card_product.variants | map: 'option1' | uniq %}
-            {% for color in colors %}
-              <option value="{{ color }}">{{ color }}</option>
+          {% assign sizes = card_product.variants | map: 'option1' | uniq %}
+            {% for sizes in colors %}
+              <option value="{{ sizes }}">{{ sizes }}</option>
             {% endfor %}
         </select>
       </div>
