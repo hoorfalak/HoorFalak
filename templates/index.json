@@ -54,6 +54,11 @@
     "custom_text_and_banner_t8PPxA": {
       "type": "Custom-Text-and-banner",
       "settings": {
+        "heading": "The Gift Guide",
+        "text": "<p>Discover Joy: Your Ultimate Holiday Gift Destination. Explore our curated selection and find the perfect gifts to delight your loved ones this holiday season.<\/p>",
+        "button_label": "Shop Now",
+        "button_link": "",
+        "image": "shopify:\/\/shop_images\/Frame_3.png"
       }
     },
     "image_with_text_KPHX3j": {
