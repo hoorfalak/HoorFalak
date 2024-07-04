@@ -428,28 +428,28 @@
   </div>
 
  <form class="product-form" action="/cart/add" method="post" enctype="multipart/form-data">
-   
-      <div class="variant-selectors">
-        <label for="variant-select">Sizes</label>
-        <select name="id" id="variant-select">
-          {% assign sizes = card_product.variants | map: 'option1' | uniq %}
+    <div class="variant-selectors">
+        <label for="size-select">Sizes</label>
+        <select name="id" id="size-select">
+            {% assign sizes = card_product.variants | map: 'option1' | uniq %}
             {% for sizevalue in sizes %}
-              <option value="{{ sizevalue }}">{{ sizevalue }}</option>
+                <option value="{{ sizevalue }}">{{ sizevalue }}</option>
             {% endfor %}
         </select>
-        <label for="variant-select">Color</label>
-         <select name="id" id="variant-select">
-          {% assign colors = card_product.variants | map: 'option2' | uniq %}
+
+        <label for="color-select">Color</label>
+        <select name="id" id="color-select">
+            {% assign colors = card_product.variants | map: 'option2' | uniq %}
             {% for color in colors %}
-              <option value="{{ color }}">{{ color }}</option>
+                <option value="{{ color }}">{{ color }}</option>
             {% endfor %}
         </select>
-      </div>
-    
-      <input type="submit" name="id" value="{{ card_products.selected_or_first_available_variant.id}}">
-  
-    <button type="submit" class="animatedbutton2">Add to Cart <span>{% render 'icon-arrow'%}</span></button>
-  </form>
+    </div>
+
+    <input type="submit" name="id" value="{{ card_products.selected_or_first_available_variant.id }}">
+    <button type="submit" class="animatedbutton2">Add to Cart <span>{% render 'icon-arrow' %}</span></button>
+</form>
+
 
 
 </div>
