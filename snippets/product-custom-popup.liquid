@@ -422,9 +422,8 @@
     <div class="product-info">
       <h2>{{ card_product.title }}</h2>
       <p>{{ card_product.description }}</p>
-      {% if card_product.variants.size == 1 %}
         <p>{{ card_product.variants.first.price | money }}</p>
-      {% endif %}
+   
     </div>
   </div>
 
