@@ -29,7 +29,7 @@
 header-drawer {
     display: block !important;
 }
-  span.h2.header-text {
+  span.h2.header-text .desktop {
     display: none;
 }
   }
@@ -277,7 +277,7 @@ header-drawer {
       endif
     %}
  <!-- {% if section.setting.menu == blank %} -->
-   <span class="h2 header-text">{{ section.settings.headertext }}</span>
+   <span class="h2 header-text desktop">{{ section.settings.headertext }}</span>
 <!-- {% endif %} -->
     {%- if section.settings.logo_position == 'middle-center' -%}
       {%- if request.page_type == 'index' -%}
