@@ -443,7 +443,7 @@
     {% else %}
       <input type="hidden" name="id" value="{{ card_product.variants.first.id }}">
     {% endif %}
-    <button type="submit" class="animatedbutton2">Add to Cart</button>
+    <button type="submit" class="animatedbutton2">Add to Cart <span>{% render 'icon-arrow' %}</span></button>
   </form>
 </div>
 
