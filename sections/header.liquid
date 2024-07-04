@@ -23,13 +23,20 @@
     display: none;
 }
   @media only screen and (max-width: 600px) {
+    .menu-drawer__navigation-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    padding: 29px;
+    text-align: center;
+}
     button.header-btn.btn.animatedbutton.desktopbtn {
     display: none;
 }
 header-drawer {
     display: block !important;
 }
-  span.h2.header-text .desktop {
+  span.h2.header-text.desktop {
     display: none;
 }
   }
