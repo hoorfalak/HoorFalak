@@ -73,9 +73,9 @@
 }
 
 @media screen and (min-width: 990px) {
-  .quick-add-modal__content {
-    width: 70%;
-  }
+     .quick-add-modal__content {
+        width: 35%;
+    }
 }
 
 .quick-add-modal__content img {
