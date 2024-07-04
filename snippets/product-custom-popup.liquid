@@ -429,28 +429,30 @@
   </div>
 
  <form class="product-form" action="/cart/add" method="post" enctype="multipart/form-data">
-    {% if card_product.variants.size > 1 %}
-      <div class="variant-selectors">
-        <label for="variant-select">Sizes</label>
-        <select name="id" id="variant-select">
-          {% assign sizes = card_product.variants | map: 'option1' | uniq %}
-            {% for sizevalue in sizes %}
-              <option value="{{ sizevalue }}">{{ sizevalue }}</option>
-            {% endfor %}
-        </select>
-        <label for="variant-select">Color</label>
-         <select name="id" id="variant-select">
-          {% assign colors = card_product.variants | map: 'option2' | uniq %}
-            {% for color in colors %}
-              <option value="{{ color }}">{{ color }}</option>
-            {% endfor %}
-        </select>
-      </div>
-    {% else %}
-      <input type="hidden" name="id" value="{{ card_product.variants.first.id }}">
-    {% endif %}
-    <button type="submit" class="animatedbutton2">Add to Cart <span>{% render 'icon-arrow'%}</span></button>
-  </form>
+  {% if card_product.variants.size > 1 %}
+    <div class="variant-selectors">
+      <label for="size-select">Sizes</label>
+      <select name="size" id="size-select">
+        {% for variant in card_product.variants %}
+          {% if variant.option1 != blank %}
+            <option value="{{ variant.id }}">{{ variant.option1 }}</option>
+          {% endif %}
+        {% endfor %}
+      </select>
+      <label for="color-select">Colors</label>
+      <select name="color" id="color-select">
+        {% for variant in card_product.variants %}
+          {% if variant.option2 != blank %}
+            <option value="{{ variant.id }}">{{ variant.option2 }}</option>
+          {% endif %}
+        {% endfor %}
+      </select>
+    </div>
+  {% else %}
+    <input type="hidden" name="id" value="{{ card_product.variants.first.id }}">
+  {% endif %}
+  <button type="submit" class="animatedbutton2">Add to Cart <span>{% render 'icon-arrow'%}</span></button>
+</form>
 
 
 </div>
