@@ -16,6 +16,39 @@
 </div>
 
 <style>
+  .animatedbutton2 {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #000;
+    background: #fff;
+    border: 2px solid #000;
+    transition: color 0.4s ease;
+    z-index: 0;
+}
+
+.animatedbutton2::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 100%;
+    width: 100%;
+    height: 100%;
+    background: #FFF544; /* Updated background color */
+    transition: right 0.4s ease;
+    z-index: -1;
+}
+
+.animatedbutton2:hover {
+    color: #fff !important; /* Updated text color */
+}
+
+.animatedbutton2:hover::before {
+    right: 0;
+}
+
   button.animatedbutton2 a {
     font-size: 16px;
     color: #fff;
