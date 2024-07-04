@@ -61,53 +61,6 @@
         "image": "shopify:\/\/shop_images\/Frame_3.png"
       }
     },
-    "image_with_text_KPHX3j": {
-      "type": "image-with-text",
-      "blocks": {
-        "heading_FFAjiW": {
-          "type": "heading",
-          "settings": {
-            "heading": "<strong>The Gift Guide<\/strong>",
-            "heading_size": "h1"
-          }
-        },
-        "text_kAJctw": {
-          "type": "text",
-          "settings": {
-            "text": "<h4>Discover Joy: Your Ultimate Holiday Gift Destination. Explore our curated selection and find the perfect gifts to delight your loved ones this holiday season.<\/h4>",
-            "text_style": "body"
-          }
-        },
-        "button_qjC9qk": {
-          "type": "button",
-          "settings": {
-            "button_label": "Shop Now",
-            "button_link": "shopify:\/\/collections",
-            "button_style_secondary": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_FFAjiW",
-        "text_kAJctw",
-        "button_qjC9qk"
-      ],
-      "settings": {
-        "image": "shopify:\/\/shop_images\/Frame_2.png",
-        "height": "adapt",
-        "desktop_image_width": "medium",
-        "layout": "text_first",
-        "desktop_content_position": "top",
-        "desktop_content_alignment": "left",
-        "content_layout": "no-overlap",
-        "section_color_scheme": "scheme-1",
-        "color_scheme": "scheme-1",
-        "image_behavior": "none",
-        "mobile_content_alignment": "left",
-        "padding_top": 0,
-        "padding_bottom": 36
-      }
-    },
     "rich_text_Rm8tee": {
       "type": "rich-text",
       "blocks": {
@@ -184,7 +137,6 @@
   "order": [
     "image_banner",
     "custom_text_and_banner_t8PPxA",
-    "image_with_text_KPHX3j",
     "rich_text_Rm8tee",
     "featured_collection"
   ]
