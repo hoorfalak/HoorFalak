@@ -432,23 +432,25 @@
   {% if card_product.variants.size > 1 %}
     <div class="variant-selectors">
       <label for="size-select">Sizes</label>
+      {% for variant in card_product.variants %}
       <select name="id">
-        {% for variant in card_product.variants %}
+        
           {% if variant.option1 != blank %}
             {% for variantvalue in variant.option1 %}
             <option value="{{ variantvalue }}">{{ variantvalue }}</option>
               {% endfor %}
           {% endif %}
-        {% endfor %}
+       
       </select>
       <label for="color-select">Colors</label>
       <select name="id">
-        {% for variant in card_product.variants %}
+      
           {% if variant.option2 != blank %}
             <option value="{{ variant.id }}">{{ variant.option2 }}</option>
           {% endif %}
-        {% endfor %}
+         
       </select>
+      {% endfor %}
     </div>
   {% else %}
     <input type="hidden" name="id" value="{{ card_product.variants.first.id }}">
