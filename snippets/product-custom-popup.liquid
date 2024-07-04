@@ -433,19 +433,17 @@
     <div class="variant-selectors">
       <label for="size-select">Sizes</label>
       <select name="size">
-        {% assign sizes = card_product.variants | map: 'option1' | uniq %}
-        {% for sizevalue in sizes %}
-          {% if sizevalue != blank %}
-            <option value="{{ sizevalue }}">{{ sizevalue }}</option>
+        {% for variant in card_product.variants %}
+          {% if variant.option1 != blank %}
+            <option value="{{ variant.option1 }}">{{ variant.option1 }}</option>
           {% endif %}
         {% endfor %}
       </select>
       <label for="color-select">Colors</label>
       <select name="color">
-        {% assign colors = card_product.variants | map: 'option2' | uniq %}
-        {% for color in colors %}
-          {% if color != blank %}
-            <option value="{{ color }}">{{ color }}</option>
+        {% for variant in card_product.variants %}
+          {% if variant.option2 != blank %}
+            <option value="{{ variant.option2 }}">{{ variant.option2 }}</option>
           {% endif %}
         {% endfor %}
       </select>
@@ -455,6 +453,7 @@
   {% endif %}
   <button type="submit" class="animatedbutton2">Add to Cart <span>{% render 'icon-arrow'%}</span></button>
 </form>
+
 
 </div>
 
