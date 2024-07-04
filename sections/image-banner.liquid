@@ -2,6 +2,9 @@
 
 {%- if section.settings.image_height == 'adapt' and section.settings.image != blank -%}
   {%- style -%}
+   div#Banner-template--23000187076910__image_banner .banner__media.media.scroll-trigger.animate--fade-in {
+    background: #fff !important;
+}
     @media screen and (max-width: 749px) {
       #Banner-{{ section.id }}::before,
       #Banner-{{ section.id }} .banner__media::before,
