@@ -432,6 +432,11 @@
                     </td>
                   </tr>
                 {%- endfor -%}
+                                <div class="products">
+        {% for product in collection.products %}
+          <p>{{ product.title }}</p>
+          {% endfor %}
+       </div>
               </tbody>
             </table>
           {%- endif -%}
