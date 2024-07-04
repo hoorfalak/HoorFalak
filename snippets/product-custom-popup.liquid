@@ -435,7 +435,9 @@
       <select name="id">
         {% for variant in card_product.variants %}
           {% if variant.option1 != blank %}
-            <option value="{{ variant.id }}">{{ variant.option1 }}</option>
+            {% for variantvalue in variant.option1 %}
+            <option value="{{ variantvalue }}">{{ variantvalue }}</option>
+              {% endfor %}
           {% endif %}
         {% endfor %}
       </select>
