@@ -453,9 +453,9 @@
 </cart-items>
    <div class="products">
         {% for product in collection.products %}
-          <p>{{ product.title }}</p>
+          <p>{{ product | json }}</p>
           {% endfor %}
-                                </div>
+       </div>
 {% schema %}
 {
   "name": "t:sections.main-cart-items.name",
