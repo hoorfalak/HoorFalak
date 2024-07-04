@@ -440,14 +440,13 @@
           {% endunless %}
         {% endfor %}
       </select>
-
       <label for="color-select">Colors</label>
-      <select name="color">
+      <select name="id">
         {% assign seen_colors = '' %}
         {% for variant in card_product.variants %}
           {% unless seen_colors contains variant.option2 %}
             {% assign seen_colors = seen_colors | append: variant.option2 | append: ',' %}
-            <option value="{{ variant.option2 }}">{{ variant.option2 }}</option>
+            <option value="{{ variant.id }}">{{ variant.option2 }}</option>
           {% endunless %}
         {% endfor %}
       </select>
@@ -455,10 +454,8 @@
   {% else %}
     <input type="hidden" name="id" value="{{ card_product.variants.first.id }}">
   {% endif %}
-  
   <button type="submit" class="animatedbutton2">Add to Cart <span>{% render 'icon-arrow' %}</span></button>
 </form>
-
 
 
 
