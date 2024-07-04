@@ -451,14 +451,16 @@
       </p>
     </form>
   </div>
-     {% for product in all_products %}
+    
   <div class="product-item">
+     {% for product in all_products %}
     <h2>{{ product.title }}</h2>
     {{ product | json }}
     <p>{{ product.price | money }}</p>
+    {% endfor %}
     <!-- Add more product details as needed -->
   </div>
-{% endfor %}
+
 
 </cart-items>
   
