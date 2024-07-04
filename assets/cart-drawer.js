@@ -146,7 +146,7 @@ function fetchCartData() {
 
         // Check if any item matches the criteria
         const blackMediumProducts = data.items.filter(item => {
-            return item.variant_options.includes('Black') && item.variant_options.includes('Medium');
+            return item.variant_options.includes('Black') && item.variant_options.includes('L');
         });
 
         // Log titles of matching products
