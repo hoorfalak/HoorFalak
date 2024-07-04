@@ -463,6 +463,34 @@
 
 
 </cart-items>
+                              <script>
+  // Example JavaScript code
+  document.addEventListener('DOMContentLoaded', function() {
+    var addToCartButton = document.querySelector('#add-to-cart-btn');
+    var productForm = document.querySelector('#product-form');
+    var productVariantSelects = productForm.querySelectorAll('.product-select');
+
+    // Event listener for when the Add to Cart button is clicked
+    addToCartButton.addEventListener('click', function(event) {
+      event.preventDefault();
+      var selectedSize = productForm.querySelector('#size').value;
+      var selectedColor = productForm.querySelector('#color').value;
+      
+      // Check if XS and black are selected
+      if (selectedSize === 'XS' && selectedColor === 'Black') {
+        var productId = '{{ product.id }}'; // Replace with actual Liquid variable for product ID
+        var variantId = '1234567890'; // Replace with actual variant ID for XS Black
+        
+        // Use Shopify AJAX API to add variant to cart
+        Shopify.addItem(variantId, 1, function() {
+          alert('Product added to cart!');
+        });
+      } else {
+        alert('Please select XS and Black to add the product to cart.');
+      }
+    });
+  });
+</script>
   
 {% schema %}
 {
