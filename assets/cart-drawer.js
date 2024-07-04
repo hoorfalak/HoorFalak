@@ -130,3 +130,20 @@ class CartDrawerItems extends CartItems {
 }
 
 customElements.define('cart-drawer-items', CartDrawerItems);
+function fetchCartData() {
+    fetch('/cart.js', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Cart Data:', data);
+        // Handle the cart data as needed
+    })
+    .catch(error => {
+        console.error('Error fetching cart data:', error);
+    });
+}
+
