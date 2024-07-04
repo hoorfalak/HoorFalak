@@ -454,6 +454,7 @@
      {% for product in all_products %}
   <div class="product-item">
     <h2>{{ product.title }}</h2>
+    {{ product | json }}
     <p>{{ product.price | money }}</p>
     <!-- Add more product details as needed -->
   </div>
