@@ -434,9 +434,11 @@
         <label for="variant-select">Variants:</label>
         <select name="id" id="variant-select">
           {% for variant in card_product.variants %}
+            {% if variant.option == "Color" %}
             <option value="{{ variant.id }}">
               {{ variant.title }} - {{ variant.price | money }}
             </option>
+              {% endif %}
           {% endfor %}
         </select>
       </div>
