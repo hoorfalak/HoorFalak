@@ -432,12 +432,12 @@
     <div class="variant-selectors">
       <label for="size-select">Sizes</label>
       <select name="id">
-       {% assign unique_options = '' | split: ',' %}
+        {% assign seen_options = '' %}
   {% for variant in card_product.variants %}
-    {% if variant.option1 != blank and variant.option1 != '' and unique_options contains variant.option1 == false %}
-      {% assign unique_options = unique_options | push: variant.option1 %}
+    {% unless seen_options contains variant.option1 %}
+      {% assign seen_options = seen_options | append: variant.option1 | append: ',' %}
       <option value="{{ variant.id }}">{{ variant.option1 }}</option>
-    {% endif %}
+    {% endunless %}
   {% endfor %}
       </select>
       <label for="color-select">Colors</label>
