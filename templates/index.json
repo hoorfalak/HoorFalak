@@ -51,6 +51,11 @@
         "show_text_below": false
       }
     },
+    "custom_text_and_banner_t8PPxA": {
+      "type": "Custom-Text-and-banner",
+      "settings": {
+      }
+    },
     "image_with_text_KPHX3j": {
       "type": "image-with-text",
       "blocks": {
@@ -173,6 +178,7 @@
   },
   "order": [
     "image_banner",
+    "custom_text_and_banner_t8PPxA",
     "image_with_text_KPHX3j",
     "rich_text_Rm8tee",
     "featured_collection"
