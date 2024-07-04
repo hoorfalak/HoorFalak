@@ -6,11 +6,11 @@
       <div class="custom-text">
         <h2>{{ section.settings.heading }}</h2>
         <p>{{ section.settings.text }}</p>
-        <button class="animatedbutton2"> {% render 'icon-arrow' %}</button>
+        <button class="animatedbutton2"> {{ section.settings.button_label }}{% render 'icon-arrow' %}</button>
       </div>
     </div>
       <div class="grid-image">
-         <img src="https://cdn.shopify.com/s/files/1/0885/9539/8958/files/Frame_2.png?v=1720036330" alt="Custom Image" class="custom-image">
+         <img src="{{ section.settings.image | image_url}}" alt="Custom Image" class="custom-image">
     </div>
   </div>
 </div>
@@ -45,7 +45,20 @@
 {% schema %}
   {
     "name": "Section name",
-    "settings": [],
+    "settings": [
+      {
+          "type": "inline_richtext",
+          "id": "heading",
+          "default": "t:sections.image-with-text.blocks.heading.settings.heading.default",
+          "label": "t:sections.image-with-text.blocks.heading.settings.heading.label"
+        },
+     {
+          "type": "richtext",
+          "id": "text",
+          "default": "t:sections.image-with-text.blocks.text.settings.text.default",
+          "label": "t:sections.image-with-text.blocks.text.settings.text.label"
+        },
+    ],
     "presets": [
       {
         "name":"Custom-Text-and-banner"
