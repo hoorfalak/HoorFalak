@@ -41,8 +41,8 @@
       "settings": {
         "logotext": "TISSO VISON",
         "logo_position": "middle-left",
-        "menu": "",
-        "menu_type_desktop": "dropdown",
+        "menu": "main-menu",
+        "menu_type_desktop": "drawer",
         "headertext": "Find the ideal gift for your loved ones.",
         "headerbtnlabel": "CHOOSE GIFT",
         "sticky_header_type": "on-scroll-up",
