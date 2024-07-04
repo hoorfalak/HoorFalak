@@ -143,10 +143,24 @@ function fetchCartData() {
     .then(response => response.json())
     .then(data => {
         console.log('Cart Data:', data);
-        // Handle the cart data as needed
-        // Example: Update UI with cart information
+
+        // Check if any item matches the criteria
+        const blackMediumProducts = data.items.filter(item => {
+            return item.variant_options.includes('Black') && item.variant_options.includes('Medium');
+        });
+
+        // Log titles of matching products
+        if (blackMediumProducts.length > 0) {
+            console.log('Products with color Black and size Medium:');
+            blackMediumProducts.forEach(product => {
+                console.log('- ' + product.title);
+            });
+        } else {
+            console.log('No products found with color Black and size Medium.');
+        }
     })
     .catch(error => {
         console.error('Error fetching cart data:', error);
     });
 }
+
