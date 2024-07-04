@@ -71,7 +71,9 @@
     right: 2rem;
   }
 }
-
+.product__title h2 {
+    font-size: 16px;
+}
 @media screen and (min-width: 990px) {
      .quick-add-modal__content {
         width: 35%;
