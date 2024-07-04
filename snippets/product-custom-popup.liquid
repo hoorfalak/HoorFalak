@@ -441,7 +441,7 @@
         {% endfor %}
       </select>
       <label for="color-select">Colors</label>
-      <select name="id">
+      <select name="id2">
         {% assign seen_colors = '' %}
         {% for variant in card_product.variants %}
           {% unless seen_colors contains variant.option2 %}
