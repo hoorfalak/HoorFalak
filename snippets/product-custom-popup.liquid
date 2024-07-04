@@ -407,7 +407,7 @@ button[type="submit"] {
                   </button>
                   <div id="QuickAddInfo-{{ card_product.id }}" class="quick-add-modal__content-info ccccc">
                   </div>
-              <div class="popupadd-{{ card_product.id }} quick-add-modal__content-info">
+             <div class="popupadd-{{ card_product.id }} quick-add-modal__content-info">
   <div class="product-details">
     <div class="product-image">
       <img src="{{ card_product.featured_media | image_url }}">
@@ -415,9 +415,7 @@ button[type="submit"] {
     <div class="product-info">
       <h2>{{ card_product.title }}</h2>
       <p>{{ card_product.description }}</p>
-      {% if card_product.variants.size > 1 %}
-        <p>{{ card_product.variants.first.price | money }}</p>
-      {% else %}
+      {% if card_product.variants.size == 1 %}
         <p>{{ card_product.variants.first.price | money }}</p>
       {% endif %}
     </div>
@@ -426,31 +424,14 @@ button[type="submit"] {
   <form class="product-form" action="/cart/add" method="post" enctype="multipart/form-data">
     {% if card_product.variants.size > 1 %}
       <div class="variant-selectors">
-        <!-- Assuming variants are grouped by color and size -->
-        <div class="color-variants">
-          <label for="color">Color:</label>
-          <select name="id" id="color">
-            {% for variant in card_product.variants %}
-              {% if variant.option1 == 'Color' %}
-                <option value="{{ variant.id }}">
-                  {{ variant.title }} - {{ variant.price | money }}
-                </option>
-              {% endif %}
-            {% endfor %}
-          </select>
-        </div>
-        <div class="size-variants">
-          <label for="size">Size:</label>
-          <select name="id" id="size">
-            {% for variant in card_product.variants %}
-              {% if variant.option1 == 'Size' %}
-                <option value="{{ variant.id }}">
-                  {{ variant.title }} - {{ variant.price | money }}
-                </option>
-              {% endif %}
-            {% endfor %}
-          </select>
-        </div>
+        <label for="variant-select">Variants:</label>
+        <select name="id" id="variant-select">
+          {% for variant in card_product.variants %}
+            <option value="{{ variant.id }}">
+              {{ variant.title }} - {{ variant.price | money }}
+            </option>
+          {% endfor %}
+        </select>
       </div>
     {% else %}
       <input type="hidden" name="id" value="{{ card_product.variants.first.id }}">
@@ -458,6 +439,7 @@ button[type="submit"] {
     <button type="submit">Add to Cart</button>
   </form>
 </div>
+
 
                 </div>
               </quick-add-modal>
