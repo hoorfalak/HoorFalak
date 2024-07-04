@@ -16,13 +16,13 @@
 </div>
 
 <style>
-  .animatedbutton2 {
+ .animatedbutton2 {
     position: relative;
     overflow: hidden;
     display: inline-block;
     padding: 10px 20px;
     font-size: 16px;
-    color: #000;
+    color: #000; /* Text color black by default */
     background: #fff;
     border: 2px solid #000;
     transition: color 0.4s ease;
@@ -36,13 +36,13 @@
     right: 100%;
     width: 100%;
     height: 100%;
-    background: #FFF544; /* Updated background color */
+    background: #FFF544; /* Background color */
     transition: right 0.4s ease;
     z-index: -1;
 }
 
 .animatedbutton2:hover {
-    color: #000 !important; /* Updated text color */
+    color: #fff !important; /* Text color white on hover */
 }
 
 .animatedbutton2:hover::before {
