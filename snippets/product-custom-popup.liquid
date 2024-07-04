@@ -433,13 +433,10 @@
       <div class="variant-selectors">
         <label for="variant-select">Variants:</label>
         <select name="id" id="variant-select">
-          {% for variant in card_product.variants %}
-            {% if option.name == "Color" %}
-            <option value="{{ variant.id }}">
-              {{ variant.title }} - {{ variant.price | money }}
-            </option>
-              {% endif %}
-          {% endfor %}
+          {% assign colors = card_product.variants | map: 'option1' | uniq %}
+            {% for color in colors %}
+              <option value="{{ color }}">{{ color }}</option>
+            {% endfor %}
         </select>
       </div>
     {% else %}
