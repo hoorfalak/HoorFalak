@@ -428,22 +428,22 @@
     </div>
   </div>
 
-<form class="product-form" action="/cart/add" method="post" enctype="multipart/form-data">
+ <form class="product-form" action="/cart/add" method="post" enctype="multipart/form-data">
   {% if card_product.variants.size > 1 %}
     <div class="variant-selectors">
       <label for="size-select">Sizes</label>
-      <select name="size">
+      <select name="id">
         {% for variant in card_product.variants %}
           {% if variant.option1 != blank %}
-            <option value="{{ variant.option1 }}">{{ variant.option1 }}</option>
+            <option value="{{ variant.id }}">{{ variant.option1 }}</option>
           {% endif %}
         {% endfor %}
       </select>
       <label for="color-select">Colors</label>
-      <select name="color">
+      <select name="id">
         {% for variant in card_product.variants %}
           {% if variant.option2 != blank %}
-            <option value="{{ variant.option2 }}">{{ variant.option2 }}</option>
+            <option value="{{ variant.id }}">{{ variant.option2 }}</option>
           {% endif %}
         {% endfor %}
       </select>
@@ -453,7 +453,6 @@
   {% endif %}
   <button type="submit" class="animatedbutton2">Add to Cart <span>{% render 'icon-arrow'%}</span></button>
 </form>
-
 
 </div>
 
