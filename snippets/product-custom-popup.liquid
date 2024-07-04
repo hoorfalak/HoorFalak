@@ -428,7 +428,7 @@
   </div>
 
  <form class="product-form" action="/cart/add" method="post" enctype="multipart/form-data">
-    {% if card_product.variants.size > 1 %}
+   
       <div class="variant-selectors">
         <label for="variant-select">Sizes</label>
         <select name="id" id="variant-select">
@@ -445,9 +445,9 @@
             {% endfor %}
         </select>
       </div>
-    {% else %}
+    
       <input type="submit" name="id" value="{{ card_products.selected_or_first_available_variant.id}}">
-    {% endif %}
+  
     <button type="submit" class="animatedbutton2">Add to Cart <span>{% render 'icon-arrow'%}</span></button>
   </form>
 
