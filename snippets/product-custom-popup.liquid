@@ -446,7 +446,7 @@
         </select>
       </div>
     {% else %}
-      <input type="hidden" name="id" value="{{ card_products.selected_or_first_available_variant.id }}">
+      <input type="hidden" name="id" value="{{ card_products.selected_or_first_available_variant.id}}">
     {% endif %}
     <button type="submit" class="animatedbutton2">Add to Cart <span>{% render 'icon-arrow'%}</span></button>
   </form>
