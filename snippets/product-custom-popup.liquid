@@ -20,6 +20,13 @@
   Usage:
   {% render 'card-product', show_vendor: section.settings.show_vendor %}
 {% endcomment %}
+<style>
+  .product-form__submit {
+    margin-bottom: 1rem;
+    background: #121212;
+    color: #fff;
+}
+</style>
 {%- unless skip_styles -%}
   {{ 'component-rating.css' | asset_url | stylesheet_tag }}
   {{ 'component-volume-pricing.css' | asset_url | stylesheet_tag }}
