@@ -349,22 +349,27 @@
                   </button>
                   <div id="QuickAddInfo-{{ card_product.id }}" class="quick-add-modal__content-info ccccc">
                   </div>
-                <div class="popupadd-{{ card_product.id }}" class="quick-add-modal__content-info">
+               <div class="popupadd-{{ card_product.id }}" class="quick-add-modal__content-info">
   <h2>{{ card_product.title }}</h2>
   <img src="{{ card_product.featured_media | image_url }}">
-  
-  {% if card_product.variants.size > 1 %}
-    <select>
-      {% for variant in card_product.variants %}
-        <option value="{{ variant.id }}">
-          {{ variant.title }} - {{ variant.price | money }}
-        </option>
-      {% endfor %}
-    </select>
-  {% else %}
-    <p>{{ card_product.variants.first.price | money }}</p>
-  {% endif %}
+
+  <form action="/cart/add" method="post" enctype="multipart/form-data">
+    {% if card_product.variants.size > 1 %}
+      <select name="id">
+        {% for variant in card_product.variants %}
+          <option value="{{ variant.id }}">
+            {{ variant.title }} - {{ variant.price | money }}
+          </option>
+        {% endfor %}
+      </select>
+    {% else %}
+      <input type="hidden" name="id" value="{{ card_product.variants.first.id }}">
+      <p>{{ card_product.variants.first.price | money }}</p>
+    {% endif %}
+    <button type="submit">Add to Cart</button>
+  </form>
 </div>
+
 
                 </div>
               </quick-add-modal>
