@@ -451,23 +451,14 @@
       </p>
     </form>
   </div>
-     <div class="related-products">
-  <h2>All Products</h2>
-  <div class="grid grid--uniform">
-    {% for product in all_products %}
-      <div class="grid__item">
-        <a href="{{ product.url }}" class="product-card">
-          {% if product.featured_image %}
-            <img src="{{ product.featured_image | product_img_url: 'medium' }}" alt="{{ product.title | escape }}">
-          {% else %}
-            <img src="https://via.placeholder.com/300" alt="{{ product.title | escape }}">
-          {% endif %}
-          <h3>{{ product.title }}</h3>
-          <p>{{ product.price | money }}</p>
-        </a>
-      </div>
-    {% endfor %}
+     {% for product in all_products %}
+  <div class="product-item">
+    <h2>{{ product.title }}</h2>
+    <p>{{ product.price | money }}</p>
+    <!-- Add more product details as needed -->
   </div>
+{% endfor %}
+
 </cart-items>
   
 {% schema %}
