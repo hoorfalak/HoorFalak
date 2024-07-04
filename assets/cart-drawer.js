@@ -129,7 +129,10 @@ class CartDrawerItems extends CartItems {
   }
 }
 
-customElements.define('cart-drawer-items', CartDrawerItems);
+window.onload = function() {
+    fetchCartData();
+};
+
 function fetchCartData() {
     fetch('/cart.js', {
         method: 'GET',
@@ -141,9 +144,9 @@ function fetchCartData() {
     .then(data => {
         console.log('Cart Data:', data);
         // Handle the cart data as needed
+        // Example: Update UI with cart information
     })
     .catch(error => {
         console.error('Error fetching cart data:', error);
     });
 }
-
