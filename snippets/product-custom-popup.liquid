@@ -21,6 +21,64 @@
   {% render 'card-product', show_vendor: section.settings.show_vendor %}
 {% endcomment %}
 <style>
+  .popupadd-{{ card_product.id }} {
+    display: flex;
+    flex-direction: column;
+}
+
+.product-details {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+}
+
+.product-image {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.product-image img {
+    max-width: 100%;
+    height: auto;
+}
+
+.product-info {
+    flex: 2;
+}
+
+.product-info h2 {
+    margin-top: 0;
+}
+
+.product-info p {
+    margin: 10px 0;
+}
+
+.product-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.variant-selectors {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+}
+
+.color-variants,
+.size-variants {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.variant-selectors select {
+    width: 100%;
+}
+
+button[type="submit"] {
+    align-self: flex-start;
+}
+
   .product__description.rte.quick-add-hidden {
     display: block !important;
 }
