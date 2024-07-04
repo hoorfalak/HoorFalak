@@ -433,9 +433,9 @@
       <label for="size-select">Sizes</label>
       <select name="id">
         {% for variant in card_product.variants %}
-          {% if variant.option.name contains 'Color' %}
-            <option value="{{ variant.id }}">{{ variant.option1 }}</option>
-          {% endif %}
+        {% if variant.option1 contains 'Color' %}
+      <option value="{{ variant.id }}">{{ variant.option1 }}</option>
+    {% endif %}
         {% endfor %}
       </select>
       <label for="color-select">Colors</label>
