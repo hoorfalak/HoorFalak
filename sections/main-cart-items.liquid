@@ -449,6 +449,9 @@
       </p>
     </form>
   </div>
+        {% for products in collection.products %}
+          <p>{{ product.title }}</p>
+          {% endfor %}
 </cart-items>
 
 {% schema %}
