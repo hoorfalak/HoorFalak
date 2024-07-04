@@ -1,3 +1,46 @@
+<div class="custom-section">
+  <div class="custom-grid">
+    <div class="grid-image">
+      <!-- Image Column -->
+      <img src="path/to/your/image.jpg" alt="Custom Image" class="custom-image">
+    </div>
+    <div class="grid-text">
+      <!-- Text Column -->
+      <div class="custom-text">
+        <h2>Custom Heading</h2>
+        <p>This is the custom text content for the section.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .custom-section {
+    padding: 20px;
+    background-color: #f9f9f9;
+  }
+  .custom-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 15px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .grid-image, .grid-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .custom-image {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .custom-text {
+    text-align: left;
+  }
+</style>
+
 {% schema %}
   {
     "name": "Section name",
