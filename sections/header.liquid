@@ -22,6 +22,38 @@
   body, p, a, h1, h2, h3, h4, h5, h6, span, div, li, ul, ol, blockquote, pre, code, button {
     font-family: 'Jost', sans-serif !important;
 }
+   .animatedbutton2 {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #000;
+    background: #fff;
+    border: 2px solid #000;
+    transition: color 0.4s ease;
+    z-index: 0;
+}
+
+.animatedbutton2::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    Right: 100%;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    transition: Right 0.4s ease;
+    z-index: -1;
+}
+
+.animatedbutton2:hover {
+    color: #fff !important;
+}
+
+.animatedbutton2:hover::before {
+    Right: 0;
+}
   .animatedbutton {
     position: relative;
     overflow: hidden;
