@@ -2,7 +2,9 @@
 <div class="main-container">
   <div class="custom-banner">
     <img src="{{ section.settings.image | image_url }}" class="mob-none">
+    {% if  section.settings.mobileimage != null %}
       <img src="{{ section.settings.mobileimage | image_url }}" class="desk-none">
+      {% endif %}
   </div>
 </div>
 <style>
