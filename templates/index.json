@@ -9,6 +9,16 @@
 */
 {
   "sections": {
+    "custom_banner_tqQBmh": {
+      "type": "custom-banner",
+      "settings": {
+      }
+    },
+    "grid_column_section_E6DiaT": {
+      "type": "grid-column-section",
+      "settings": {
+      }
+    },
     "image_banner": {
       "type": "image-banner",
       "blocks": {
@@ -135,6 +145,8 @@
     }
   },
   "order": [
+    "custom_banner_tqQBmh",
+    "grid_column_section_E6DiaT",
     "image_banner",
     "custom_text_and_banner_t8PPxA",
     "rich_text_Rm8tee",
