@@ -114,6 +114,58 @@
     },
     "grid_column_section_E6DiaT": {
       "type": "grid-column-section",
+      "blocks": {
+        "product_tTfzpA": {
+          "type": "product",
+          "settings": {
+            "product": "black-leather-bag",
+            "second_image": true
+          }
+        },
+        "product_dhQKzQ": {
+          "type": "product",
+          "settings": {
+            "product": "blue-silk-tuxedo",
+            "second_image": true
+          }
+        },
+        "product_XDkgWg": {
+          "type": "product",
+          "settings": {
+            "product": "chequered-red-shirt",
+            "second_image": true
+          }
+        },
+        "product_hQR6qR": {
+          "type": "product",
+          "settings": {
+            "product": "classic-leather-jacket",
+            "second_image": false
+          }
+        },
+        "product_Y8VPqt": {
+          "type": "product",
+          "settings": {
+            "product": "classic-varsity-top",
+            "second_image": true
+          }
+        },
+        "product_RcBkdN": {
+          "type": "product",
+          "settings": {
+            "product": "dark-denim-top",
+            "second_image": true
+          }
+        }
+      },
+      "block_order": [
+        "product_tTfzpA",
+        "product_dhQKzQ",
+        "product_XDkgWg",
+        "product_hQR6qR",
+        "product_Y8VPqt",
+        "product_RcBkdN"
+      ],
       "settings": {
       }
     },
