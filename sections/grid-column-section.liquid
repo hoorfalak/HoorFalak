@@ -1,22 +1,22 @@
 <div class="main-container">
   <div class="grid-products">
     <div class="product-items">
-
-              {% render 'card-product',
-                card_product: block.settings.product,
-                media_aspect_ratio: 'adapt',
-                show_secondary_image: block.settings.second_image,
-                extend_height: true,
-                placeholder_image: placeholder_image,
-                skip_styles: skip_card_product_styles
-              %}
+      {% render 'card-product',
+        card_product: block.settings.product,
+        media_aspect_ratio: 'adapt',
+        show_secondary_image: block.settings.second_image,
+        extend_height: true,
+        placeholder_image: placeholder_image,
+        skip_styles: skip_card_product_styles
+      %}
     </div>
   </div>
 </div>
+
 {% schema %}
-  {
-    "name": "Grid Column Section",
-    "settings": [],
+{
+  "name": "Grid Column Section",
+  "settings": [],
   "blocks": [
     {
       "type": "product",
@@ -26,14 +26,19 @@
           "type": "product",
           "id": "product",
           "label": "t:sections.collage.blocks.product.settings.product.label"
+        },
+        {
+          "type": "checkbox",
+          "id": "second_image",
+          "label": "Show Secondary Image"
         }
       ]
     }
   ],
-     "presets": [
-      {
-        "name":"grid-column-section"
-      }
-     ]
-  }
+  "presets": [
+    {
+      "name": "grid-column-section"
+    }
+  ]
+}
 {% endschema %}
