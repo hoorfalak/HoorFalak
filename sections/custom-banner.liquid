@@ -2,13 +2,14 @@
   .custom-banner img {
     width: 100%;
 }
-  .container {
+  .main-container {
     width: 100%;
 }
 </style>
-<div class="container">
+<div class="main-container">
   <div class="custom-banner">
-    <img src="{{ section.settings.image | image_url }}">
+    <img src="{{ section.settings.image | image_url }}" class="mob-none">
+      <img src="{{ section.settings.image | image_url }}" class="desk-none">
   </div>
 </div>
 {% schema %}
