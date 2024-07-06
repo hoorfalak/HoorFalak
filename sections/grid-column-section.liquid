@@ -3,7 +3,7 @@
     {% for block in section.blocks %}
         {% if block.type == 'product' %}
     <div class="product-items">    
-          {% render 'card-product',
+          {% render 'product-custom-popup',
             card_product: block.settings.product,
             media_aspect_ratio: 'adapt',
             show_secondary_image: block.settings.second_image,
