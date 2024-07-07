@@ -251,13 +251,12 @@
 {%- endif -%}
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-  document.querySelector('.plus-popup-icon').addEventListener('click', function() {
-        popupIcons.forEach(icon => {
+  document.querySelector('.plus-popup-icon') 
+    popupIcons.forEach(icon => {
         icon.addEventListener('click', function() {
             console.log('Image clicked!');
             // You can add more specific actions related to each image here
         });
-    }); 
 });
 
 </script>
