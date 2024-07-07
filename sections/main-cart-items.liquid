@@ -6,8 +6,9 @@
 {{ 'quantity-popover.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
-  td.cart-item__details {
+  td.cart-item__details2 {
     padding-left: 41px;
+        padding-top: 17px;
 }
   .cart-item-image img {
     width: 100%;
@@ -103,7 +104,8 @@
                       {% endif %}
                     </td>
 
-                    <td class="cart-item__details">
+                    <td class="cart-item__details
+                      ">
                       {%- if settings.show_vendor -%}
                         <p class="caption-with-letter-spacing">{{ item.product.vendor }}</p>
                       {%- endif -%}
@@ -503,7 +505,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                         <img src="${imageUrl}" alt="Product Image">
                                     </div>
                                     </td>
-                                    <td class="cart-item__details">
+                                    <td class="cart-item__details2">
                                     <div class="cart-item-details">
                                         <h2>${productTitle}</h2>
                                         <p>Price: ${price}</p>
