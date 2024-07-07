@@ -252,9 +252,7 @@
     </h3>
              {% render 'price', product: card_product, price_class: '', show_compare_at_price: true %}
       <span class="description">{{ card_product.description }}</span>
-    <div class="card-information">
-   
-      
+    <div class="card-information">    
      {% if card_product.variants.size > 1 %}
     <div class="variant-selectors">
       <label for="size-select">Sizes</label>
