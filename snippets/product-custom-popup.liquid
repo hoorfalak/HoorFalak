@@ -406,7 +406,7 @@ document.addEventListener('DOMContentLoaded', function() {
     popupIcons.forEach(icon => {
         icon.addEventListener('click', function() {
             console.log('Image clicked!');
-            popupbox.style.display = "block";
+            this.popupbox.style.display = "block";
             document.body.style.overflow = 'hidden';
         });
     });
