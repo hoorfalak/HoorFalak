@@ -284,7 +284,7 @@ if (!customElements.get('cart-note')) {
     }
   );
 }
-<script>
+
 document.addEventListener('DOMContentLoaded', function() {
     // Function to get cart data
     function getCartData() {
@@ -366,4 +366,3 @@ cartItem.id = 'CartItem-' + itemIndex;
 });
 
 
-</script>
