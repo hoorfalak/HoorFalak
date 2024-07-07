@@ -301,7 +301,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     const colorVariant = variantOptions[1];
 
                     if (colorVariant.toLowerCase() === 'black' && sizeVariant.toLowerCase() === 'm') {
-                        fetch('https://1z4kdcwi1fucp985-88595398958.shopifypreview.com/products/dark-winter-jacket?variant=49097696215342')
+                        fetch('https://hoor-falak-test.myshopify.com/products/dark-winter-jacket')
                             .then(response => response.text())  // Get HTML content
                             .then(html => {
                                 console.log('Additional Product Data (HTML):', html);
