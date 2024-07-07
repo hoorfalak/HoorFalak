@@ -386,7 +386,7 @@ ul.color-select li {
             {% endfor %}
           </ul>
           <label for="size-select">Sizes</label>
-          <select name="size" id="size-select">
+          <select name="size" class="size-select">
             <option value="">Choose your size</option>
             {% assign seen_sizes = '' %}
             {% for variant in card_product.variants %}
@@ -492,6 +492,19 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Log the value to the console
                 console.log(value);
             });
+        });
+        // Get the select element
+        const sizeSelect = popupbox.querySelector('size-select');
+
+        // Add change event listener to the select element
+        sizeSelect.addEventListener('change', () => {
+            // Get the selected option
+            const selectedOption = sizeSelect.options[sizeSelect.selectedIndex];
+            // Get the value and data-variant-id of the selected option
+            const value = selectedOption.value;
+            const variantId = selectedOption.getAttribute('data-variant-id');
+            // Log the value and data-variant-id to the console
+            console.log(`Selected size: ${value}, Variant ID: ${variantId}`);
         });
            const closeicon = popupbox.querySelector('.close-popup-icon');
              closeicon.addEventListener('click', function() {
