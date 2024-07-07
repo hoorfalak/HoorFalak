@@ -483,5 +483,27 @@ document.addEventListener('DOMContentLoaded', function() {
 
    
 });
+   const colorItems = document.querySelectorAll('.color-select li');
+
+        // Function to remove active class from all items
+        function removeActiveClass() {
+            colorItems.forEach(item => {
+                item.classList.remove('active');
+            });
+        }
+
+        // Add click event listener to each list item
+        colorItems.forEach(item => {
+            item.addEventListener('click', () => {
+                // Remove active class from all items
+                removeActiveClass();
+                // Add active class to the clicked item
+                item.classList.add('active');
+                // Get the value of the clicked item
+                const value = item.getAttribute('value');
+                // Log the value to the console
+                console.log(value);
+            });
+        });
 </script>
 
