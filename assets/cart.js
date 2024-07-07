@@ -284,3 +284,86 @@ if (!customElements.get('cart-note')) {
     }
   );
 }
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Function to get cart data
+    function getCartData() {
+        fetch('/cart.js')
+            .then(response => response.json())
+            .then(data => {
+                console.log('Cart Data:', data);
+                data.items.forEach(item => {
+                    const productTitle = item.product_title;
+                    const variantOptions = item.variant_options;
+
+                    // Assuming the variantOptions array has [size, color] order
+                    const sizeVariant = variantOptions[0];
+                    const colorVariant = variantOptions[1];
+
+                    if (colorVariant.toLowerCase() === 'black' && sizeVariant.toLowerCase() === 'm') {
+                        fetch('https://1z4kdcwi1fucp985-88595398958.shopifypreview.com/products/dark-winter-jacket?variant=49097696215342')
+                            .then(response => response.text())  // Get HTML content
+                            .then(html => {
+                                console.log('Additional Product Data (HTML):', html);
+                                // Create a DOM parser
+                                const parser = new DOMParser();
+                                const doc = parser.parseFromString(html, 'text/html');
+
+                                // Extract image source
+                                const imageElement = doc.querySelector('.product__media img');
+                                const imageUrl = imageElement ? imageElement.getAttribute('src') : '';
+
+                                // Extract price
+                                const priceElement = doc.querySelector('.price-item--regular');
+                                const price = priceElement ? priceElement.textContent.trim() : '';
+
+                                // Extract quantity input HTML
+                                const quantityInputContainer = doc.querySelector('.price-per-item__container');
+                                const quantityInputHtml = quantityInputContainer ? quantityInputContainer.innerHTML : '';
+
+                                // Create new elements to append
+                                const cartItem = document.createElement('tr');
+                                cartItem.classList.add('cart-item');
+                                var itemIndex = item.index + 1;
+cartItem.id = 'CartItem-' + itemIndex;
+                                cartItem.innerHTML = `
+                                <tr>
+                                <td>
+                                    <div class="cart-item-image">
+                                        <img src="${imageUrl}" alt="Product Image">
+                                    </div>
+                                    </td>
+                                    <td class="cart-item__details2">
+                                    <div class="cart-item-details">
+                                        <h2>${productTitle}</h2>
+                                        <p>Price: ${price}</p>
+                                        <p>Color: ${colorVariant}</p>
+                                        <p>Size: ${sizeVariant}</p>
+                                        </td>
+                                        <td class="cart-item__quantity2">
+                                        <div class="quantity-input-wrapper">
+                                            ${quantityInputHtml}
+                                        </div>
+                                        </td>
+                                   
+                                    </tr>
+                                `;
+
+                                // Append to cart-items class
+                                document.querySelector('.tbody-line-items').appendChild(cartItem);
+                               var additionalPriceElement = document.querySelector('.total-extra .additional-price');
+                               console.log(additionalPriceElement)
+                            })
+                            .catch(error => console.error('Error fetching additional product data:', error));
+                    }
+                });
+            })
+            .catch(error => console.error('Error fetching cart data:', error));
+    }
+
+    // Call the function to get cart data
+    getCartData();
+});
+
+
+</script>
