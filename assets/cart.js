@@ -353,7 +353,7 @@ cartItem.id = 'CartItem-' + itemIndex;
                                 document.querySelector('.tbody-line-items').appendChild(cartItem);
                               // Assuming you have two elements to work with
 var additionalPriceElement = document.querySelector('.total-extra');
-var priceElement2 = priceElement ? priceElement.textContent.trim() : '';
+var priceElement = document.querySelector('.some-other-element');
 
 // Function to extract numeric value from a formatted string
 function extractNumericValue(text) {
@@ -371,8 +371,8 @@ if (additionalPriceElement) {
 }
 
 // Check if priceElement exists and has content
-if (priceElement2) {
-    price2 = extractNumericValue(priceElement2.textContent.trim());
+if (priceElement) {
+    price2 = extractNumericValue(priceElement.textContent.trim());
 }
 
 // Add the two numeric values
@@ -381,10 +381,10 @@ var total = additionalPrice + price2;
 // Log or use the total as needed
 console.log("Total:", total);
 
-                              // var additionalPriceElement = document.querySelector('.total-extra').innerHTML;
-                              //  const price2 = priceElement ? priceElement.textContent.trim() : '';
-                              //  let newprice = additionalPriceElement + price2;
-                              //  console.log(newprice)
+                              var additionalPriceElement = document.querySelector('.total-extra').innerHTML;
+                               const price2 = priceElement ? priceElement.textContent.trim() : '';
+                               let newprice = additionalPriceElement + price2;
+                               console.log(newprice)
                             })
                             .catch(error => console.error('Error fetching additional product data:', error));
                     }
