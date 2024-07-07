@@ -187,7 +187,7 @@
           </div>
         {%- endif -%}
       </div>
-      <div class="card__content ddd grid-pro-popup">
+      <div class="card__content ddd grid-pro-popup" id="grid-pro-popup">
   <div class="card__information">
     <h3
       class="card__heading{% if card_product.featured_media or settings.card_style == 'standard' %} h5{% endif %}"
@@ -246,7 +246,7 @@
   document.addEventListener('DOMContentLoaded', function() {
     // Get the image and popup elements
     var image = document.querySelector('.plus-popup-icon');
-    var popup = document.querySelector('grid-pro-popup');
+    var popup = document.getElementBy('grid-pro-popup');
     var closeBtn = document.querySelector('.close');
 
     // When the image is clicked, open the popup
