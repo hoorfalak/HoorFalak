@@ -322,55 +322,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-document.addEventListener('DOMContentLoaded', function() {
-  var sizeSelect = document.getElementById('size-select');
-  var colorSelect = document.getElementById('color-select');
-  var addToCartButton = document.getElementById('add-product');
-
-  // Function to update hidden input field with selected variant ID
-  function updateVariantId() {
-    var sizeId = sizeSelect.value;
-    var variantId = sizeId; // Assuming size variant ID is used
-    document.getElementById('variant-id-input').value = variantId;
-  }
-
-  // Event listener for size dropdown change
-  sizeSelect.addEventListener('change', function() {
-    updateVariantId();
-  });
-
-  // Event listener for color dropdown change (optional, if you have color variants)
-  colorSelect.addEventListener('change', function() {
-    // Add logic here if needed
-  });
-
-  // Event listener for Add to Cart button click
-  addToCartButton.addEventListener('click', function(e) {
-    e.preventDefault(); // Prevent default form submission
-
-    var productId = '{{ card_product.id }}';
-    var variantId = document.getElementById('variant-id-input').value;
-    var quantity = 1; // Example: Change quantity as needed
-
-    // AJAX request to add product to cart
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', '/cart/add.js');
-    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    xhr.onload = function() {
-      if (xhr.status === 200) {
-        alert('Product added to cart!');
-        // Optionally, redirect to the cart page or update the cart count in the UI
-      } else {
-        alert('Error adding product to cart: ' + xhr.statusText);
-      }
-    };
-    xhr.onerror = function() {
-      alert('Request failed');
-    };
-    xhr.send('quantity=' + encodeURIComponent(quantity) + '&id=' + encodeURIComponent(variantId));
-
-  });
-});
 
 </script>
 
