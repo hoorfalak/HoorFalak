@@ -475,25 +475,34 @@ document.addEventListener('DOMContentLoaded', function() {
                                 const parser = new DOMParser();
                                 const doc = parser.parseFromString(html, 'text/html');
 
-                                // Extract product title
-                                const productTitleElement = doc.querySelector('.product__title h1');
-                                const extractedProductTitle = productTitleElement ? productTitleElement.textContent.trim() : 'Title not found';
+                                // Extract image source
+                                const imageElement = doc.querySelector('.product__media img');
+                                const imageUrl = imageElement ? imageElement.getAttribute('src') : '';
 
-                                // Extract product price
-                                const productPriceElement = doc.querySelector('.price__container .price-item--sale') || doc.querySelector('.price__container .price-item--regular');
-                                const extractedProductPrice = productPriceElement ? productPriceElement.textContent.trim() : 'Price not found';
+                                // Extract price
+                                const priceElement = doc.querySelector('.price-item--regular');
+                                const price = priceElement ? priceElement.textContent.trim() : '';
 
-                                // Extract the first variant
-                                const firstVariantElement = doc.querySelector('select[name="options[Size]"] option');
-                                const extractedFirstVariant = firstVariantElement ? firstVariantElement.textContent.trim() : 'Variant not found';
+                                // Extract quantity input HTML
+                                const quantityInputContainer = doc.querySelector('.price-per-item__container');
+                                const quantityInputHtml = quantityInputContainer ? quantityInputContainer.innerHTML : '';
 
                                 // Create new elements to append
                                 const cartItem = document.createElement('div');
                                 cartItem.classList.add('cart-item');
                                 cartItem.innerHTML = `
-                                    <h2>${extractedProductTitle}</h2>
-                                    <p>Price: ${extractedProductPrice}</p>
-                                    <p>First Variant: ${extractedFirstVariant}</p>
+                                    <div class="cart-item-image">
+                                        <img src="${imageUrl}" alt="Product Image">
+                                    </div>
+                                    <div class="cart-item-details">
+                                        <h2>${productTitle}</h2>
+                                        <p>Price: ${price}</p>
+                                        <p>Color: ${colorVariant}</p>
+                                        <p>Size: ${sizeVariant}</p>
+                                        <div class="quantity-input-wrapper">
+                                            ${quantityInputHtml}
+                                        </div>
+                                    </div>
                                 `;
 
                                 // Append to cart-items class
