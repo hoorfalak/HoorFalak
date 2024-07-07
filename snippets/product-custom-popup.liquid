@@ -402,7 +402,7 @@ ul.color-select li {
 document.addEventListener('DOMContentLoaded', function() {
     const popupIcons = document.querySelectorAll('.media--transparent22 .plus-popup-icon');
   console.log(popupIcons)
-    const popupbox = popupIcons.nextSibling.innerHTML;
+    const popupbox = popupImage.closest('.media--transparent22');
  console.log(popupbox)
     popupIcons.forEach(icon => {
         icon.addEventListener('click', function() {
