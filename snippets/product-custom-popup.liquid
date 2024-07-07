@@ -401,12 +401,14 @@ ul.color-select li {
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     const popupIcons = document.querySelectorAll('.media--transparent22 .plus-popup-icon');
-    const popupbox = popupIcons.closest('.grid-pro-popup'); // Assuming you have a popup box element with class 'popup-box'
     popupIcons.forEach(icon => {
         icon.addEventListener('click', function() {
             console.log('Image clicked!');
-            this.popupbox.style.display = "block";
-            document.body.style.overflow = 'hidden';
+            const popupbox = this.closest('.card-wrapper').querySelector('.grid-pro-popup');
+            if (popupbox) {
+                popupbox.style.display = "block";
+                document.body.style.overflow = 'hidden';
+            }
         });
     });
 
@@ -414,11 +416,15 @@ document.addEventListener('DOMContentLoaded', function() {
     if (closeicon) {
         closeicon.addEventListener('click', function() {
             console.log('Popup close clicked!');
-            popupbox.style.display = "none";
-            document.body.style.overflow = 'auto';
+            const popupbox = document.querySelector('.grid-pro-popup');
+            if (popupbox) {
+                popupbox.style.display = "none";
+                document.body.style.overflow = 'auto';
+            }
         });
     }
 });
+
 
 
 
