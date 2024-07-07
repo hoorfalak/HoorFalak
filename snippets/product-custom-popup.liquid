@@ -202,7 +202,7 @@
            {% for variant in product.variants %}
   {% if variant.option1 == 'Size' %}
     <li>
-      {{ variant.option2 }}
+      {{ variant.option1.value }}
     </li>
   {% endif %}
 {% endfor %}
