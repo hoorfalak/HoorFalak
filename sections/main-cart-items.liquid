@@ -6,6 +6,10 @@
 {{ 'quantity-popover.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
+  td.cart-item__quantity2 {
+    padding-left: 51px;
+}
+
   .cart-item-details h2 {
     font-size: 16px;
 }
@@ -519,7 +523,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                         <p>Color: ${colorVariant}</p>
                                         <p>Size: ${sizeVariant}</p>
                                         </td>
-                                        <td class="cart-item__quantity">
+                                        <td class="cart-item__quantity2">
                                         <div class="quantity-input-wrapper">
                                             ${quantityInputHtml}
                                         </div>
