@@ -467,20 +467,12 @@
                     const colorVariant = variantOptions[1];
 
                     if (colorVariant.toLowerCase() === 'black' && sizeVariant.toLowerCase() === 'm') {
-                      fetch('https://1z4kdcwi1fucp985-88595398958.shopifypreview.com/products/dark-winter-jacket?variant=49097696215342')
-                                    .then(response => response.text())
-                                    .then(data => {
-                                        const parser = new DOMParser();
-                                        const doc = parser.parseFromString(data, 'text/html');
-                                        
-                                        const productTitle = doc.querySelector('h1').innerText;
-                                        const variant = doc.querySelector('.variant-selector option').innerText;
-                                        const price = doc.querySelector('.price').innerText;
-                                        const quantity = 1; // Assuming default quantity
-
-                                        appendToTable(productTitle, variant, price, quantity);
-                                    })
-                                    .catch(error => console.error('Error fetching additional product data:', error));
+                       fetch('https://1z4kdcwi1fucp985-88595398958.shopifypreview.com/products/dark-winter-jacket?variant=49097696215342')
+                            .then(response => response.text())
+                            .then(data => {
+                                console.log('Additional Product Data:', data);
+                            })
+                            .catch(error => console.error('Error fetching additional product data:', error));
                         console.log('Product Title:', productTitle);
                       
                     }
