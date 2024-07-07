@@ -197,7 +197,7 @@
           <strong>Variants:</strong>
           <ul>
             {% for variant in card_product.variants %}
-              {% if variant.option.name == 'Color' %}
+              {% if variant.option1 %}
               <li>
                 {{ variant.title }} 
               </li>
