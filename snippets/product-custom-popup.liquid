@@ -234,66 +234,70 @@
       </div>
       <div class="card__content ddd grid-pro-popup" id="grid-pro-popup">
       <div class="card__information pop-up-cont">
-  <div class="pop-up-content">
-    <div class="row-flex">
-      <div class="column-1">
-        <img srcset="{{ card_product.featured_media | image_url }} {{ card_product.featured_media.width }}w"
-             src="{{ card_product.featured_media | image_url: width: 533 }}"
-             sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
-             alt="{{ card_product.featured_media.alt | escape }}"
-             class="motion-reduce ggg pop-up-pro-image"
-             {% unless lazy_load == false %}
-               loading="lazy"
-             {% endunless %}
-             width="{{ card_product.featured_media.width }}"
-             height="{{ card_product.featured_media.height }}">
-      </div>
-      <div class="column-2">
-        <h3 class="card__heading{% if card_product.featured_media or settings.card_style == 'standard' %} h5{% endif %}"
-            {% if card_product.featured_media or settings.card_style == 'card' %}
-              id="title-{{ section_id }}-{{ card_product.id }}"
-            {% endif %}>
-          <span id="CardLink-{{ section_id }}-{{ card_product.id }}" class="full-unstyled-link" aria-labelledby="CardLink-{{ section_id }}-{{ card_product.id }} Badge-{{ section_id }}-{{ card_product.id }}">
-            {{ card_product.title | escape }}
-          </span>
-        </h3>
-        {% render 'price', product: card_product, price_class: '', show_compare_at_price: true %}
-        <span class="description">{{ card_product.description }}</span>
-      </div>
-    </div>
-    <div class="card-information">    
-      {% if card_product.variants.size > 1 %}
-        <div class="variant-selectors">
-          <form id="product-form-{{ card_product.id }}" method="post" action="/cart/add">
-            <input type="hidden" name="id" value="{{ card_product.variants.first.id }}">
-            <label for="size-select">Sizes</label>
-            <select name="size" id="size-select">
-              {% assign seen_sizes = '' %}
-              {% for variant in card_product.variants %}
-                {% unless seen_sizes contains variant.option1 %}
-                  {% assign seen_sizes = seen_sizes | append: variant.option1 | append: ',' %}
-                  <option value="{{ variant.id }}">{{ variant.option1 }}</option>
+  <img src="https://cdn.shopify.com/s/files/1/0885/9539/8958/files/Group_1000008134.png?v=1720348134" class="close-popup-icon">
+        <div class="pop-up-content">
+          <div class="row-flex">
+          <div class="column-1">
+  <img  srcset="{{ card_product.featured_media | image_url }} {{ card_product.featured_media.width }}w
+                "src="{{ card_product.featured_media | image_url: width: 533 }}"
+                sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
+                alt="{{ card_product.featured_media.alt | escape }}"
+                class="motion-reduce ggg pop-up-pro-image"
+                {% unless lazy_load == false %}
+                  loading="lazy"
                 {% endunless %}
-              {% endfor %}
-            </select>
-            <label for="color-select">Colors</label>
-            <select name="color" id="color-select">
-              {% assign seen_colors = '' %}
-              {% for variant in card_product.variants %}
-                {% unless seen_colors contains variant.option2 %}
-                  {% assign seen_colors = seen_colors | append: variant.option2 | append: ',' %}
-                  <option value="{{ variant.id }}">{{ variant.option2 }}</option>
-                {% endunless %}
-              {% endfor %}
-            </select>
-            <button type="submit" class="animatedbutton2" id="add-product">Add to Cart <span>{% render 'icon-arrow' %}</span></button>
-          </form>
-        </div>
+                width="{{ card_product.featured_media.width }}"
+                height="{{ card_product.featured_media.height }}">
+          </div>
+          <div class="column-2">
+    <h3
+      class="card__heading{% if card_product.featured_media or settings.card_style == 'standard' %} h5{% endif %}"
+      {% if card_product.featured_media or settings.card_style == 'card' %}
+        id="title-{{ section_id }}-{{ card_product.id }}"
       {% endif %}
+    >
+      <span
+        id="CardLink-{{ section_id }}-{{ card_product.id }}"
+        class="full-unstyled-link"
+        aria-labelledby="CardLink-{{ section_id }}-{{ card_product.id }} Badge-{{ section_id }}-{{ card_product.id }}"
+      >
+        {{ card_product.title | escape }}
+      </span>
+    </h3>
+             {% render 'price', product: card_product, price_class: '', show_compare_at_price: true %}
+      <span class="description">{{ card_product.description }}</span>
+  </div>
+        </div>
+    <div class="card-information">    
+     {% if card_product.variants.size > 1 %}
+    <div class="variant-selectors">
+      <label for="size-select">Sizes</label>
+      <select name="size">
+        {% assign seen_sizes = '' %}
+        {% for variant in card_product.variants %}
+          {% unless seen_sizes contains variant.option1 %}
+            {% assign seen_sizes = seen_sizes | append: variant.option1 | append: ',' %}
+            <option value="{{ variant.id }}">{{ variant.option1 }}</option>
+          {% endunless %}
+        {% endfor %}
+      </select>
+      <label for="color-select">Colors</label>
+      <select name="color">
+        {% assign seen_colors = '' %}
+        {% for variant in card_product.variants %}
+          {% unless seen_colors contains variant.option2 %}
+            {% assign seen_colors = seen_colors | append: variant.option2 | append: ',' %}
+            <option value="{{ variant.id }}">{{ variant.option2 }}</option>
+          {% endunless %}
+        {% endfor %}
+      </select>
+    </div>
+        <button type="submit" class="animatedbutton2" id="add-product">Add to Cart <span>{% render 'icon-arrow' %}</span></button>
+       {% endif %}
+      
     </div>
   </div>
-</div>
-
+  </div>
 </div>
     </div>
   </div>
