@@ -453,37 +453,44 @@
 <script>
   document.addEventListener('DOMContentLoaded', function() {
     // Function to get cart data
-   function getCartData() {
-    fetch('/cart.js')
-        .then(response => response.json())
-        .then(data => {
-            console.log('Cart Data:', data);
-            data.items.forEach(item => {
-                const productTitle = item.product_title;
-                const variantOptions = item.variant_options;
+    function getCartData() {
+        fetch('/cart.js')
+            .then(response => response.json())
+            .then(data => {
+                console.log('Cart Data:', data);
+                data.items.forEach(item => {
+                    const productTitle = item.product_title;
+                    const variantOptions = item.variant_options;
 
-                // Assuming the variantOptions array has [size, color] order
-                const sizeVariant = variantOptions[0];
-                const colorVariant = variantOptions[1];
+                    // Assuming the variantOptions array has [size, color] order
+                    const sizeVariant = variantOptions[0];
+                    const colorVariant = variantOptions[1];
 
-                if (colorVariant.toLowerCase() === 'black' && sizeVariant.toLowerCase() === 'm') {
-                    fetch('https://1z4kdcwi1fucp985-88595398958.shopifypreview.com/products/dark-winter-jacket?variant=49097696215342')
-                        .then(response => response.json())
-                        .then(data => {
-                            console.log('Additional Product Data:', data);
-                        })
-                        .catch(error => console.error('Error fetching additional product data:', error));
-                    console.log('Product Title:', productTitle);
-                } else {
-                    // Add any else conditions if needed
-                }
-            });
-        })
-        .catch(error => console.error('Error fetching cart data:', error));
-}
+                    if (colorVariant.toLowerCase() === 'black' && sizeVariant.toLowerCase() === 'm') {
+                        fetch('https://1z4kdcwi1fucp985-88595398958.shopifypreview.com/products/dark-winter-jacket?variant=49097696215342')
+                            .then(response => {
+                                if (!response.ok) {
+                                    throw new Error('Network response was not ok');
+                                }
+                                const contentType = response.headers.get('content-type');
+                                if (!contentType || !contentType.includes('application/json')) {
+                                    throw new TypeError("Oops, we haven't got JSON!");
+                                }
+                                return response.json();
+                            })
+                            .then(data => {
+                                console.log('Additional Product Data:', data);
+                            })
+                            .catch(error => console.error('Error fetching additional product data:', error));
+                    }
+                });
+            })
+            .catch(error => console.error('Error fetching cart data:', error));
+    }
 
-// Call the function to get cart data
-getCartData();
+    // Call the function to get cart data
+    getCartData();
+
 
 });
 
