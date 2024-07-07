@@ -427,8 +427,15 @@ document.addEventListener('DOMContentLoaded', function() {
   let selectedSize = null;
   let variantId = null;
 
+  // Ensure the variants data script tag is available
+  const variantsDataElement = document.querySelector('#variants-data');
+  if (!variantsDataElement) {
+    console.error('Variants data element not found.');
+    return;
+  }
+
   // Parse variants data from the script tag
-  const variantsData = JSON.parse(document.querySelector('#variants-data');
+  const variantsData = JSON.parse(variantsDataElement.textContent);
 
   // Track selected color
   colorSelect.addEventListener('click', function(event) {
@@ -480,6 +487,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 });
+
 
 </script>
 
