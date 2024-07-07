@@ -315,6 +315,7 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log('Image clicked!');
             popupbox.style.display = "block";
             document.body.style.overflow = 'hidden';
+            popupIcons.style.display = "none";
         });
     });
 
@@ -323,6 +324,7 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('popup-close');
         popupbox.style.display = "none";
         document.body.style.overflow = 'auto';
+        popupIcons.style.display = "block";
     });
 });
 
