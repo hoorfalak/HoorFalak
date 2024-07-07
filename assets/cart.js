@@ -370,13 +370,12 @@ cartItem.id = 'CartItem-' + itemIndex;
 
                                 price2 = extractNumericValue(priceElement2);
                                 console.log(price2)
-
-
                             // Add the two numeric values
                             var total = additionalPrice + price2;
 
                             console.log("Total:", "$"+ total + "  " +"CAD");
                             additionalPriceElement == total
+                              additionalPriceElement ==''
                             })
                             .catch(error => console.error('Error fetching additional product data:', error));
                     }
