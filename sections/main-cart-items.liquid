@@ -494,18 +494,30 @@ document.addEventListener('DOMContentLoaded', function() {
                                 const cartItem = document.createElement('div');
                                 cartItem.classList.add('cart-item');
                                 cartItem.innerHTML = `
-                                    <div class="cart-item-image">
-                                        <img src="${imageUrl}" alt="Product Image">
-                                    </div>
-                                    <div class="cart-item-details">
-                                        <h2>${productTitle}</h2>
-                                        <p>Price: ${price}</p>
-                                        <p>Color: ${colorVariant}</p>
-                                        <p>Size: ${sizeVariant}</p>
-                                        <div class="quantity-input-wrapper">
-                                            ${quantityInputHtml}
-                                        </div>
-                                    </div>
+                               <table class="extra-product">
+    <tbody>
+        <tr>
+            <td>
+                <div class="cart-item-image">
+                    <img src="${imageUrl}" alt="Product Image">
+                </div>
+            </td>
+            <td>
+                <div class="cart-item-details">
+                    <h2>${productTitle}</h2>
+                    <p>Price: ${price}</p>
+                    <p>Color: ${colorVariant}</p>
+                    <p>Size: ${sizeVariant}</p>
+                </div>
+            </td>
+            <td>
+                <div class="quantity-input-wrapper">
+                    ${quantityInputHtml}
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
                                 `;
 
                                 // Append to cart-items class
