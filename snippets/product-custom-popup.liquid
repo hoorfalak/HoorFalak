@@ -250,14 +250,15 @@
 {%- else -%}
 {%- endif -%}
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-      const popupIcons = document.querySelectorAll('.plus-popup-icon');
+ document.addEventListener('DOMContentLoaded', function() {
+    const popupIcons = document.querySelectorAll('.plus-popup-icon');
     popupIcons.forEach(icon => {
-        icon.addEventListener('click', function() {
-            console.log('Image clicked!');
-            // You can add more specific actions related to each image here
-        });
-});
+      icon.addEventListener('click', function() {
+        console.log('Image clicked!');
+        // You can add more specific actions related to each image here
+      });
+    });
+  });
 
 </script>
 
