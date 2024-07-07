@@ -510,7 +510,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                 const cartItem = document.createElement('tr');
                                 cartItem.classList.add('cart-item2');
                                 cartItem.innerHTML = `
-                                <tr>
+                                <tr id="id="CartItem-{{ item.index | plus: 1 }}">
                                 <td>
                                     <div class="cart-item-image">
                                         <img src="${imageUrl}" alt="Product Image">
