@@ -329,7 +329,7 @@ ul.color-select li {
         {% for variant in card_product.variants %}
           {% unless seen_colors contains variant.option2 %}
             {% assign seen_colors = seen_colors | append: variant.option2 | append: ',' %}
-           <li value="{{ variant.id }}"><div class="variant-color" style="background-color: {{ variant.option2 }}" ></div>{{ variant.option2 }}</li>
+           <li value="{{ variant.id }}"><span style="background-color: {{ variant.option2 }}" ></span>{{ variant.option2 }}</li>
           {% endunless %}
         {% endfor %}
        </ul>
