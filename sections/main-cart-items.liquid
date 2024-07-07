@@ -450,7 +450,37 @@
     </form>
   </div>
 </cart-items>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Function to get cart data
+    function getCartData() {
+        fetch('/cart.js')
+            .then(response => response.json())
+            .then(data => {
+                console.log('Cart Data:', data);
 
+                // Loop through cart items to find the desired product
+                data.items.forEach(item => {
+                    const productTitle = item.product_title;
+                    const variantTitle = item.variant_title.split(' / ');
+
+                    // Assuming the variantTitle array has [color, size] order
+                    const colorVariant = variantTitle[0];
+                    const sizeVariant = variantTitle[1];
+
+                    if (colorVariant.toLowerCase() === 'black' && sizeVariant.toLowerCase() === 'medium') {
+                        console.log('Product Title:', productTitle);
+                    }
+                });
+            })
+            .catch(error => console.error('Error fetching cart data:', error));
+    }
+
+    // Call the function to get cart data
+    getCartData();
+});
+
+</script>
 {% schema %}
 {
   "name": "t:sections.main-cart-items.name",
