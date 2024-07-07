@@ -180,13 +180,13 @@
               id="title-{{ section_id }}-{{ card_product.id }}"
             {% endif %}
           >
-            <a
+            <span
               id="CardLink-{{ section_id }}-{{ card_product.id }}"
               class="full-unstyled-link"
               aria-labelledby="CardLink-{{ section_id }}-{{ card_product.id }} Badge-{{ section_id }}-{{ card_product.id }}"
             >
               {{ card_product.title | escape }}
-            </a>
+            </span>
           </h3>
           <div class="card-information">
             {% render 'price', product: card_product, price_class: '', show_compare_at_price: true %}
