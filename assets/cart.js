@@ -378,6 +378,7 @@ var total = additionalPrice + price2;
 
 // Log or use the total as needed
 console.log("Total:", total);
+additionalPriceElement == total
 
                               // var additionalPriceElement = document.querySelector('.total-extra').innerHTML;
                               //  const price2 = priceElement ? priceElement.textContent.trim() : '';
