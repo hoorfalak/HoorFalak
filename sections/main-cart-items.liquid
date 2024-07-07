@@ -473,8 +473,9 @@
                                 console.log('Additional Product Data:', data);
                              
                 });
+                      .catch(error => console.error('Error fetching cart data:', error));
             })
-             .catch(error => console.error('Error fetching cart data:', error));
+             
     }
 
     // Call the function to get cart data
