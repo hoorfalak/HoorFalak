@@ -308,6 +308,13 @@
 
       });
     });
+   const closeicon = document.querySelectorAll('.close-popup-icon')
+    closeicon.addEventListener('click', function() {
+        console.log('popup-close');
+      popupbox.style.display = "none";
+        document.body.style.overflow = 'auto';
+
+      });
    
   });
 
