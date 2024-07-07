@@ -325,7 +325,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                 const cartItem = document.createElement('tr');
                                 cartItem.classList.add('cart-item');
                                 var itemIndex = item.index + 1;
-cartItem.id = 'CartItem-' + itemIndex;
+                                 cartItem.id = 'CartItem-' + itemIndex;
                                 cartItem.innerHTML = `
                                 <tr>
                                 <td>
