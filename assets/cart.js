@@ -375,7 +375,7 @@ cartItem.id = 'CartItem-' + itemIndex;
 
                             console.log("Total:", "$"+ total + "  " +"CAD");
                             additionalPriceElement == total
-                              additionalPriceElement ==''
+                              additionalPriceElement.style.display = 'none';
                             })
                             .catch(error => console.error('Error fetching additional product data:', error));
                     }
