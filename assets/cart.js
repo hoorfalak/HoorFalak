@@ -353,7 +353,7 @@ cartItem.id = 'CartItem-' + itemIndex;
                                 document.querySelector('.tbody-line-items').appendChild(cartItem);
                               // Assuming you have two elements to work with
 var additionalPriceElement = document.querySelector('.total-extra');
-var priceElement = document.querySelector('.some-other-element');
+var priceElement2 = document.querySelector('.some-other-element');
 
 // Function to extract numeric value from a formatted string
 function extractNumericValue(text) {
@@ -371,8 +371,8 @@ if (additionalPriceElement) {
 }
 
 // Check if priceElement exists and has content
-if (priceElement) {
-    price2 = extractNumericValue(priceElement.textContent.trim());
+if (priceElement2) {
+    price2 = extractNumericValue(priceElement2.textContent.trim());
 }
 
 // Add the two numeric values
