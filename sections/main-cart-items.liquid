@@ -472,37 +472,11 @@
             .then(data => {
                                 console.log('Additional Product Data:', data);
                              
-           
-        // Extract the product title
-        const titleElement = htmlDocument.querySelector('.product__title h1');
-        const title = titleElement.textContent.trim();
-
-        // Extract the product price
-        const priceElement = htmlDocument.querySelector('.price-item--regular');
-        const price = priceElement.textContent.trim();
-
-        // Display the extracted data in console for verification
-        console.log('Product Title:', title);
-        console.log('Product Price:', price);
-
-        // Assuming you want to add this information to an existing table row
-        const table = document.querySelector('.cart-items');
-        const row = table.insertRow();
-        const cell = row.insertCell();
-        cell.textContent = `${title} - ${price}`;
-                            })
-                            .catch(error => console.error('Error fetching additional product data:', error));
-                        console.log('Product Title:', productTitle);
-                      
-                    }
-                  else{
-                    
-                  }
                 });
             })
-            .catch(error => console.error('Error fetching cart data:', error));
+            
     }
-
+.catch(error => console.error('Error fetching cart data:', error));
     // Call the function to get cart data
     getCartData();
 });
