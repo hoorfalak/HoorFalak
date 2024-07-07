@@ -458,9 +458,9 @@ ul.color-select li {
 {%- else -%}
 {%- endif -%}
 
-<script type="application/json" id="variants-data">
+<!-- <script type="application/json" id="variants-data">
   {{ card_product.variants | json }}
-</script>
+</script> -->
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
@@ -483,17 +483,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
    
 });
-   const colorItems = document.querySelectorAll('.color-select li');
+   const colorItems2 = document.querySelectorAll('.color-select li');
 
         // Function to remove active class from all items
         function removeActiveClass() {
-            colorItems.forEach(item => {
+            colorItems2.forEach(item => {
                 item.classList.remove('active');
             });
         }
 
         // Add click event listener to each list item
-        colorItems.forEach(item => {
+        colorItems2.forEach(item => {
             item.addEventListener('click', () => {
                 // Remove active class from all items
                 removeActiveClass();
