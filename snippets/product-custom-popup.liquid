@@ -195,20 +195,30 @@
       {% render 'price', product: card_product, price_class: '', show_compare_at_price: true %}
       <span class="description">{{ card_product.description }}</span>
       
-      {% if card_product.variants.size > 1 %}
-        <div class="product-variants">
-          <strong>Variants:</strong>
-          <ul>
-           {% for variant in product.variants %}
-  {% if variant.option1 == 'Size' %}
-    <li>
-      {{ variant.option1.value }}
-    </li>
-  {% endif %}
-{% endfor %}
-          </ul>
-        </div>
-      {% endif %}
+     {% if card_product.variants.size > 1 %}
+    <div class="variant-selectors">
+      <label for="size-select">Sizes</label>
+      <select name="id">
+        {% assign seen_sizes = '' %}
+        {% for variant in card_product.variants %}
+          {% unless seen_sizes contains variant.option1 %}
+            {% assign seen_sizes = seen_sizes | append: variant.option1 | append: ',' %}
+            <option value="{{ variant.id }}">{{ variant.option1 }}</option>
+          {% endunless %}
+        {% endfor %}
+      </select>
+      <label for="color-select">Colors</label>
+      <select name="id">
+        {% assign seen_colors = '' %}
+        {% for variant in card_product.variants %}
+          {% unless seen_colors contains variant.option2 %}
+            {% assign seen_colors = seen_colors | append: variant.option2 | append: ',' %}
+            <option value="{{ variant.id }}">{{ variant.option2 }}</option>
+          {% endunless %}
+        {% endfor %}
+      </select>
+    </div>
+       {% endif %}
       
     </div>
   </div>
