@@ -28,15 +28,6 @@
 <cart-items class="gradient color-{{ section.settings.color_scheme }} isolate{% if cart == empty %} is-empty{% else %} section-{{ section.id }}-padding{% endif %}">
   <div class="page-width">
     <div class="title-wrapper-with-link">
-     <div class="product-item">
-     {% for product in all_products %}
-    <h2>{{ product.title }}</h2>
-    {{ product | json }}
-    <p>{{ product.price | money }}</p>
-    {% endfor %}
-    <!-- Add more product details as needed -->
-  </div>
-
       <h1 class="title title--primary">{{ 'sections.cart.title' | t }}</h1>
       <a href="{{ routes.all_products_collection_url }}" class="underlined-link">
         {{- 'general.continue_shopping' | t -}}
@@ -58,7 +49,7 @@
     </div>
 
     <form action="{{ routes.cart_url }}" class="cart__contents critical-hidden" method="post" id="cart">
-      <div class="cart__items oooo" id="main-cart-items" data-id="{{ section.id }}">
+      <div class="cart__items" id="main-cart-items" data-id="{{ section.id }}">
         <div class="js-contents">
           {%- if cart != empty -%}
             <table class="cart-items">
@@ -440,10 +431,7 @@
                     </td>
                   </tr>
                 {%- endfor -%}
-              {% for product in collection.products %}
-                <h1>{{ product.title }}</h1>
-                {% endfor %}
-            </tbody>
+              </tbody>
             </table>
           {%- endif -%}
         </div>
@@ -461,39 +449,8 @@
       </p>
     </form>
   </div>
-    
-  
-
 </cart-items>
- <script>
-  // Example JavaScript code
-  document.addEventListener('DOMContentLoaded', function() {
-    var addToCartButton = document.querySelector('#add-to-cart-btn');
-    var productForm = document.querySelector('#product-form');
-    var productVariantSelects = productForm.querySelectorAll('.product-select');
 
-    // Event listener for when the Add to Cart button is clicked
-    addToCartButton.addEventListener('click', function(event) {
-      event.preventDefault();
-      var selectedSize = productForm.querySelector('#size').value;
-      var selectedColor = productForm.querySelector('#color').value;
-      
-      // Check if XS and black are selected
-      if (selectedSize === 'XS' && selectedColor === 'Black') {
-        var productId = '{{ product.id }}'; // Replace with actual Liquid variable for product ID
-        var variantId = '1234567890'; // Replace with actual variant ID for XS Black
-        
-        // Use Shopify AJAX API to add variant to cart
-        Shopify.addItem(variantId, 1, function() {
-          alert('Product added to cart!');
-        });
-      } else {
-        alert('Please select XS and Black to add the product to cart.');
-      }
-    });
-  });
-</script>
-  
 {% schema %}
 {
   "name": "t:sections.main-cart-items.name",
