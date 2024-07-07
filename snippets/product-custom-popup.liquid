@@ -473,26 +473,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 popupbox.style.display = "block";
                 document.body.style.overflow = 'hidden';
             }
-           const closeicon = popupbox.querySelector('.close-popup-icon');
-             closeicon.addEventListener('click', function() {
-              popupbox.style.display = "none";
-                document.body.style.overflow = 'auto';
-        });
-        });
-    });
-
-   
-});
-   const colorItems2 = document.querySelectorAll('.color-select li');
-
-        // Function to remove active class from all items
+          const colorItems2 = popupbox.querySelectorAll('.color-select li');
         function removeActiveClass() {
             colorItems2.forEach(item => {
                 item.classList.remove('active');
             });
         }
-
-        // Add click event listener to each list item
         colorItems2.forEach(item => {
             item.addEventListener('click', () => {
                 // Remove active class from all items
@@ -505,5 +491,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 console.log(value);
             });
         });
+           const closeicon = popupbox.querySelector('.close-popup-icon');
+             closeicon.addEventListener('click', function() {
+              popupbox.style.display = "none";
+                document.body.style.overflow = 'auto';
+        });
+        });
+    });
+
+   
+});
 </script>
 
