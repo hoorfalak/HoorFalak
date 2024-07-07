@@ -509,7 +509,8 @@ document.addEventListener('DOMContentLoaded', function() {
                                 // Create new elements to append
                                 const cartItem = document.createElement('tr');
                                 cartItem.classList.add('cart-item');
-                                 cartItem.Id.add('CartItem')
+                                var itemIndex = item.index + 1;
+cartItem.id = 'CartItem-' + itemIndex;
                                 cartItem.innerHTML = `
                                 <tr>
                                 <td>
