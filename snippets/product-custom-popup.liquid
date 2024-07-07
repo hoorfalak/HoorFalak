@@ -515,7 +515,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
                 
                 // Form submission handling
-                const productForm = popupbox.querySelector('product-form');
+                const productForm = popupbox.querySelector('form[data-type="add-to-cart-form"]');
                 
                 if (productForm) {
                     const addToCartButton = productForm.querySelector('.quick-add__submit');
