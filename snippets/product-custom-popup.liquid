@@ -251,7 +251,8 @@
 {%- endif -%}
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-  document.querySelector('.plus-popup-icon') 
+      const popupIcons = document.querySelectorAll('.plus-popup-icon');
+
     popupIcons.forEach(icon => {
         icon.addEventListener('click', function() {
             console.log('Image clicked!');
