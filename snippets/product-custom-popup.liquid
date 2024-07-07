@@ -411,6 +411,8 @@ document.addEventListener('DOMContentLoaded', function() {
             }
            const closeicon = popupbox.querySelector('.close-popup-icon');
              closeicon.addEventListener('click', function() {
+              popupbox.style.display = "none";
+                document.body.style.overflow = 'auto';
         });
         });
     });
