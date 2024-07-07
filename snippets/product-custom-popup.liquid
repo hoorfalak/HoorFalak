@@ -271,6 +271,16 @@
     <div class="card-information">    
      {% if card_product.variants.size > 1 %}
     <div class="variant-selectors">
+       <label for="color-select">Colors</label>
+      <select name="color">
+        {% assign seen_colors = '' %}
+        {% for variant in card_product.variants %}
+          {% unless seen_colors contains variant.option2 %}
+            {% assign seen_colors = seen_colors | append: variant.option2 | append: ',' %}
+            <option value="{{ variant.id }}">{{ variant.option2 }}</option>
+          {% endunless %}
+        {% endfor %}
+      </select>
       <label for="size-select">Sizes</label>
       <select name="size">
         {% assign seen_sizes = '' %}
@@ -278,16 +288,6 @@
           {% unless seen_sizes contains variant.option1 %}
             {% assign seen_sizes = seen_sizes | append: variant.option1 | append: ',' %}
             <option value="{{ variant.id }}">{{ variant.option1 }}</option>
-          {% endunless %}
-        {% endfor %}
-      </select>
-      <label for="color-select">Colors</label>
-      <select name="color">
-        {% assign seen_colors = '' %}
-        {% for variant in card_product.variants %}
-          {% unless seen_colors contains variant.option2 %}
-            {% assign seen_colors = seen_colors | append: variant.option2 | append: ',' %}
-            <option value="{{ variant.id }}">{{ variant.option2 }}</option>
           {% endunless %}
         {% endfor %}
       </select>
