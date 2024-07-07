@@ -8,11 +8,53 @@
               section_id: section.id,
               quick_add: section.settings.quick_add
             %}
-      <div id="popup" class="popup">
-    <div class="popup-content">
-        <span class="close">&times;</span>
-        <p>This is the popup content!</p>
+     <div class="popupadd-{{ card_product.id }} quick-add-modal__content-info">
+  <div class="product-details">
+    <div class="product-image">
+      <img src="{{ card_product.featured_media | image_url }}">
     </div>
+    <div class="product-info">
+      <h2>{{ card_product.title }}</h2>
+      <p>{{ card_product.description }}</p>
+        <p>{{ card_product.variants.first.price | money }}</p>
+   
+    </div>
+  </div>
+
+<form class="product-form" action="/cart/add" method="post" enctype="multipart/form-data">
+  {% if card_product.variants.size > 1 %}
+    <div class="variant-selectors">
+      <label for="size-select">Sizes</label>
+      <select name="id">
+        {% assign seen_sizes = '' %}
+        {% for variant in card_product.variants %}
+          {% unless seen_sizes contains variant.option1 %}
+            {% assign seen_sizes = seen_sizes | append: variant.option1 | append: ',' %}
+            <option value="{{ variant.id }}">{{ variant.option1 }}</option>
+          {% endunless %}
+        {% endfor %}
+      </select>
+      <label for="color-select">Colors</label>
+      <select name="id">
+        {% assign seen_colors = '' %}
+        {% for variant in card_product.variants %}
+          {% unless seen_colors contains variant.option2 %}
+            {% assign seen_colors = seen_colors | append: variant.option2 | append: ',' %}
+            <option value="{{ variant.id }}">{{ variant.option2 }}</option>
+          {% endunless %}
+        {% endfor %}
+      </select>
+    </div>
+  {% else %}
+    <input type="hidden" name="id" value="{{ card_product.variants.first.id }}">
+  {% endif %}
+  <button type="submit" class="animatedbutton2" id="add-product">Add to Cart <span>{% render 'icon-arrow' %}</span></button>
+</form>
+
+
+
+
+
 </div>
     </div>
       {% endif %}
