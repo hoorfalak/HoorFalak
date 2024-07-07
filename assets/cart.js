@@ -366,16 +366,15 @@ var additionalPrice = 0;
 var price2 = 0;
 
 // Check if additionalPriceElement exists and has content
-if (additionalPriceElement) {
+
     additionalPrice = extractNumericValue(additionalPriceElement.textContent.trim());
     console.log(additionalPrice)
-}
 
 // Check if priceElement exists and has content
-if (priceElement2) {
+
     price2 = extractNumericValue(priceElement2.textContent.trim());
     console.log(price2)
-}
+
 
 // Add the two numeric values
 var total = additionalPrice + price2;
