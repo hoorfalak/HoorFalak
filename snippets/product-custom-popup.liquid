@@ -230,4 +230,32 @@
 </div>
 {%- else -%}
 {%- endif -%}
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Get the image and popup elements
+    var image = document.querySelector('.plus-popup-icon');
+    var popup = document.getElementById('grid-pro-popup');
+    var closeBtn = document.querySelector('.close');
+
+    // When the image is clicked, open the popup
+    image.addEventListener('click', function() {
+        popup.style.display = 'block';
+      alert('hhhh')
+    });
+
+    // When the close button is clicked, close the popup
+    closeBtn.addEventListener('click', function() {
+        popup.style.display = 'none';
+    });
+
+    // When clicking outside the popup content, close the popup
+    window.addEventListener('click', function(event) {
+        if (event.target === popup) {
+            popup.style.display = 'none';
+        }
+    });
+   alert('ww')
+});
+
+</script>
 
