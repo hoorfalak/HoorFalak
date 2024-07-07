@@ -369,7 +369,7 @@ var price2 = 0;
 
 // Check if priceElement exists and has content
 
-    price2 = extractNumericValue(priceElement2.textContent.trim());
+    price2 = extractNumericValue(priceElement2.textContent;
     console.log(price2)
 
 
