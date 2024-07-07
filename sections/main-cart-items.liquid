@@ -459,14 +459,14 @@
             .then(data => {
                 console.log('Cart Data:', data);
                 data.items.forEach(item => {
-                    const productTitle = item.product_title;
-                    const variantTitle = item.variant_title.split(' / ');
+                     const productTitle = item.product_title;
+                    const variantOptions = item.variant_options;
 
-                    // Assuming the variantTitle array has [color, size] order
-                    const colorVariant = variantTitle[1];
-                    const sizeVariant = variantTitle[0]
+                    // Assuming the variantOptions array has [size, color] order
+                    const sizeVariant = variantOptions[0];
+                    const colorVariant = variantOptions[1];
 
-                    if (colorVariant.toLowerCase() === 'Black' && sizeVariant.toLowerCase() === 'M') {
+                    if (colorVariant.toLowerCase() === 'black' && sizeVariant.toLowerCase() === 'm') {
                         console.log('Product Title:', productTitle);
                     }
                   else{
