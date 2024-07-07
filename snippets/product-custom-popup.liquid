@@ -218,6 +218,7 @@
       <div class="card__information pop-up-cont">
   <img src="https://cdn.shopify.com/s/files/1/0885/9539/8958/files/Group_1000008134.png?v=1720348134" class="close-popup-icon">
         <div class="pop-up-content">
+          <div class="row-flex">
           <div class="column-1">
   <img  srcset="{{ card_product.featured_media | image_url }} {{ card_product.featured_media.width }}w
                 "src="{{ card_product.featured_media | image_url: width: 533 }}"
@@ -248,6 +249,7 @@
              {% render 'price', product: card_product, price_class: '', show_compare_at_price: true %}
       <span class="description">{{ card_product.description }}</span>
   </div>
+        </div>
     <div class="card-information">    
      {% if card_product.variants.size > 1 %}
     <div class="variant-selectors">
