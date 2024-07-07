@@ -361,18 +361,15 @@ function extractNumericValue(text) {
     return parseFloat(text.replace(/[^\d.-]/g, ''));
 }
 
-// Initialize variables to store numeric values
 var additionalPrice = 0;
 var price2 = 0;
-
-// Check if additionalPriceElement exists and has content
 
     additionalPrice = extractNumericValue(additionalPriceElement.textContent.trim());
     console.log(additionalPrice)
 
 // Check if priceElement exists and has content
 
-    price2 = extractNumericValue(priceElement2.textContent.trim());
+    price2 = priceElement2;
     console.log(price2)
 
 
