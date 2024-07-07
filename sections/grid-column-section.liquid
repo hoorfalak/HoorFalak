@@ -3,12 +3,12 @@
     {% for block in section.blocks %}
         {% if block.type == 'product' %}
     <div class="product-items">    
-         
-   {% for product in collection.products %}
-  {% if product.featured_image %}
-    <img src="{{ product.featured_image.src }}" alt="{{ product.title }}">
-  {% endif %}
-{% endfor %}
+          {% render 'product-custom-popup',
+              card_product: block.settings.product,
+              section_id: section.id,
+              quick_add: section.settings.quick_add
+            %}
+    
       {% endif %}
       {% endfor %}
   </div>
