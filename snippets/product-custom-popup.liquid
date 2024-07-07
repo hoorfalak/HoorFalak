@@ -400,7 +400,7 @@ ul.color-select li {
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     const popupIcons = document.querySelectorAll('.plus-popup-icon');
-    const popupbox = popupIcons.closest('.card-wrapper').find('.grid-pro-popup');
+    const popupbox = popupIcons.closest('.card__inner');
  console.log(popupbox)
     popupIcons.forEach(icon => {
         icon.addEventListener('click', function() {
