@@ -413,7 +413,7 @@ ul.color-select li {
                       disabled
                     {% endif %}
                   >
-                    Add to Cart <span>{% render 'icon-arrow' %}</span>
+                   
                     <span>
                       {%- if card_product.selected_or_first_available_variant.available -%}
                         {{ 'products.product.add_to_cart' | t }}
@@ -421,6 +421,7 @@ ul.color-select li {
                         {{ 'products.product.sold_out' | t }}
                       {%- endif -%}
                     </span>
+                    <span>{% render 'icon-arrow' %}</span>
                     <span class="sold-out-message hidden">
                       {{ 'products.product.sold_out' | t }}
                     </span>
