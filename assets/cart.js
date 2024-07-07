@@ -300,7 +300,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     const sizeVariant = variantOptions[0];
                     const colorVariant = variantOptions[1];
 
-                    if (colorVariant.toLowerCase() === 'black' && sizeVariant.toLowerCase() === 'm') {
+                    if (!productAppended colorVariant.toLowerCase() === 'black' && sizeVariant.toLowerCase() === 'm') {
                         fetch('https://hoor-falak-test.myshopify.com/products/dark-winter-jacket')
                             .then(response => response.text())  // Get HTML content
                             .then(html => {
