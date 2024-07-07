@@ -352,26 +352,7 @@ cartItem.id = 'CartItem-' + itemIndex;
                                 // Append to cart-items class
                                 document.querySelector('.tbody-line-items').appendChild(cartItem);
                               var additionalPriceElement = document.querySelector('.total-extra').innerHTML;
-                               // Assume the initial value
-var currentPrice = "$70.00 CAD";
-
-// Extract the numeric part (assuming it's always at the beginning and ends with a space)
-var numericPart = currentPrice.split(' ')[0]; // This gets "70.00"
-
-// Convert it to a float
-var numericValue = parseFloat(numericPart);
-
-// Add the desired amount
-var newValue = numericValue + 5;
-
-// Format back to the currency format
-var newPrice = newValue.toFixed(2); // Rounds to 2 decimal places
-var currencySymbol = "$"; // You can adjust this based on your needs
-var newPriceString = currencySymbol + newPrice + " CAD";
-
-// Output the new value
-console.log(newPriceString); // Output: "$75.00 CAD"
-
+                               let newprice = additionalPriceElement ++ ${price}
                                console.log(newprice)
                             })
                             .catch(error => console.error('Error fetching additional product data:', error));
