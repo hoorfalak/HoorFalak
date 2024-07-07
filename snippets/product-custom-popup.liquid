@@ -409,16 +409,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 popupbox.style.display = "block";
                 document.body.style.overflow = 'hidden';
             }
-           const closeicon = document.querySelector('.close-popup-icon');
-    if (closeicon) {
-        closeicon.addEventListener('click', function() {
-            console.log('Popup close clicked!');
-            if (popupbox) {
-                popupbox.style.display = "none";
-                document.body.style.overflow = 'auto';
-            }
+           const closeicon = popupbox.querySelector('.close-popup-icon');
+             closeicon.addEventListener('click', function() {
         });
-    }
         });
     });
 
