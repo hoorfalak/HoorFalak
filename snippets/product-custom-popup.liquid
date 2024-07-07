@@ -322,46 +322,53 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-$(document).ready(function() {
-  // When size or color dropdowns change
-  $('#size-select, #color-select').change(function() {
-    // Update hidden input field with selected variant ID
-    var sizeId = $('#size-select').val();
-    var colorId = $('#color-select').val();
-    var productId = '{{ card_product.id }}';
+document.addEventListener('DOMContentLoaded', function() {
+  var sizeSelect = document.getElementById('size-select');
+  var colorSelect = document.getElementById('color-select');
+  var addToCartButton = document.getElementById('add-product');
 
-    // Update the hidden input field in the form
-    $('#product-form-' + productId + ' input[name="id"]').val(sizeId); // Assuming size variant ID is used
+  // Function to update hidden input field with selected variant ID
+  function updateVariantId() {
+    var sizeId = sizeSelect.value;
+    var variantId = sizeId; // Assuming size variant ID is used
+    document.getElementById('variant-id-input').value = variantId;
+  }
+
+  // Event listener for size dropdown change
+  sizeSelect.addEventListener('change', function() {
+    updateVariantId();
   });
 
-  // When Add to Cart button is clicked
-  $('#add-product').click(function(e) {
+  // Event listener for color dropdown change (optional, if you have color variants)
+  colorSelect.addEventListener('change', function() {
+    // Add logic here if needed
+  });
+
+  // Event listener for Add to Cart button click
+  addToCartButton.addEventListener('click', function(e) {
     e.preventDefault(); // Prevent default form submission
 
     var productId = '{{ card_product.id }}';
-    var sizeId = $('#size-select').val();
-    var colorId = $('#color-select').val();
+    var variantId = document.getElementById('variant-id-input').value;
     var quantity = 1; // Example: Change quantity as needed
 
-    $.ajax({
-      type: 'POST',
-      url: '/cart/add.js',
-      data: {
-        quantity: quantity,
-        id: sizeId, // Use the selected variant ID
-        properties: {
-          'Color': colorId, // Example: Add custom properties if needed
-        }
-      },
-      dataType: 'json',
-      success: function() {
+    // AJAX request to add product to cart
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', '/cart/add.js');
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.onload = function() {
+      if (xhr.status === 200) {
         alert('Product added to cart!');
         // Optionally, redirect to the cart page or update the cart count in the UI
-      },
-      error: function(xhr) {
+      } else {
         alert('Error adding product to cart: ' + xhr.statusText);
       }
-    });
+    };
+    xhr.onerror = function() {
+      alert('Request failed');
+    };
+    xhr.send('quantity=' + encodeURIComponent(quantity) + '&id=' + encodeURIComponent(variantId));
+
   });
 });
 
