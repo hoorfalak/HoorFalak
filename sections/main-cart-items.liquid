@@ -468,7 +468,7 @@
 
                     if (colorVariant.toLowerCase() === 'black' && sizeVariant.toLowerCase() === 'm') {
                        fetch('https://1z4kdcwi1fucp985-88595398958.shopifypreview.com/products/dark-winter-jacket?variant=49097696215342')
-                            .then(response => response.text())
+                            .then(response => response.json())
                             .then(data => {
                                 console.log('Additional Product Data:', data);
                              
