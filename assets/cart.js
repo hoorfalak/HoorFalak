@@ -377,7 +377,7 @@ var price2 = 0;
 var total = additionalPrice + price2;
 
 // Log or use the total as needed
-console.log("Total:", $totalCAD);
+console.log("Total:", "$"+ total + "CAD");
 additionalPriceElement == total
 
                               // var additionalPriceElement = document.querySelector('.total-extra').innerHTML;
