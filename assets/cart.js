@@ -374,7 +374,7 @@ cartItem.id = 'CartItem-' + itemIndex;
                             var total = additionalPrice + price2;
 
                             console.log("Total:", "$"+ total + "  " +"CAD");
-                           additionalPriceElement.innerHTML == total
+                           additionalPriceElement.innerHTML == total.toFixed(2)
                             })
                             .catch(error => console.error('Error fetching additional product data:', error));
                     }
