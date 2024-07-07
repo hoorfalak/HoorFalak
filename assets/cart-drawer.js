@@ -129,9 +129,4 @@ class CartDrawerItems extends CartItems {
   }
 }
 
-window.onload = function() {
-    fetchCartData();
-};
-
-
-
+customElements.define('cart-drawer-items', CartDrawerItems);
