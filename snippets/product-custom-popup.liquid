@@ -197,10 +197,11 @@
           <strong>Variants:</strong>
           <ul>
             {% for variant in card_product.variants %}
+              {% if variant.option.name == 'Color' %}
               <li>
-                {{ variant.title }} - 
-                {% render 'price', product: card_product, variant: variant %}
+                {{ variant.title }} 
               </li>
+                {% endif %}
             {% endfor %}
           </ul>
         </div>
