@@ -400,7 +400,7 @@ ul.color-select li {
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     const popupIcons = document.querySelectorAll('.plus-popup-icon');
-    const popupbox = popupIcons.parentNode('.media');
+    const popupbox = popupIcons.parentElement('.media');
  console.log(popupbox)
     popupIcons.forEach(icon => {
         icon.addEventListener('click', function() {
