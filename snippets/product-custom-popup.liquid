@@ -535,6 +535,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         // Update form fields with selected variants
                         const idInput = productForm.querySelector('.product-variant-id');
                         const sizeInput = productForm.querySelector('select[name="size"]');
+                        const colorInput = productForm.querySelector('input[name="color"]');
                         
                         if (idInput) {
                             idInput.value = variantId;
@@ -542,6 +543,10 @@ document.addEventListener('DOMContentLoaded', function() {
                         
                         if (sizeInput) {
                             sizeInput.value = sizeValue;
+                        }
+                        
+                        if (colorInput) {
+                            colorInput.value = colorValue;
                         }
                         
                         // Submit the form
