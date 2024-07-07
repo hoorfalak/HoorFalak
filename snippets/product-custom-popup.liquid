@@ -198,7 +198,7 @@
      {% if card_product.variants.size > 1 %}
     <div class="variant-selectors">
       <label for="size-select">Sizes</label>
-      <select name="id">
+      <select name="size">
         {% assign seen_sizes = '' %}
         {% for variant in card_product.variants %}
           {% unless seen_sizes contains variant.option1 %}
@@ -208,7 +208,7 @@
         {% endfor %}
       </select>
       <label for="color-select">Colors</label>
-      <select name="id">
+      <select name="color">
         {% assign seen_colors = '' %}
         {% for variant in card_product.variants %}
           {% unless seen_colors contains variant.option2 %}
