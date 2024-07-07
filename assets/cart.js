@@ -352,8 +352,8 @@ cartItem.id = 'CartItem-' + itemIndex;
                                 // Append to cart-items class
                                 document.querySelector('.tbody-line-items').appendChild(cartItem);
                               var additionalPriceElement = document.querySelector('.total-extra').innerHTML;
-                               const price = priceElement ? priceElement.textContent.trim() : '';
-                               let newprice = additionalPriceElement + price;
+                               const price2 = priceElement ? priceElement.textContent.trim() : '';
+                               let newprice = additionalPriceElement + price2;
                                console.log(newprice)
                             })
                             .catch(error => console.error('Error fetching additional product data:', error));
