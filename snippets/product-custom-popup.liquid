@@ -323,7 +323,7 @@ ul.color-select li {
           </div>
         {%- endif -%}
       </div>
-      <div class="card__content ddd grid-pro-popup" id="grid-pro-popup">
+    <div class="card__content ddd grid-pro-popup" id="grid-pro-popup">
   <div class="card__information pop-up-cont">
     <img src="https://cdn.shopify.com/s/files/1/0885/9539/8958/files/Group_1000008134.png?v=1720348134" class="close-popup-icon">
     <div class="pop-up-content">
@@ -390,12 +390,18 @@ ul.color-select li {
   </div>
 </div>
 
+
     </div>
   </div>
  
 </div>
 {%- else -%}
 {%- endif -%}
+
+<script type="application/json" id="variants-data">
+  {{ card_product.variants | json }}
+</script>
+
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     const popupIcons = document.querySelectorAll('.media--transparent22 .plus-popup-icon');
