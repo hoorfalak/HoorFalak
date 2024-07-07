@@ -417,5 +417,69 @@ document.addEventListener('DOMContentLoaded', function() {
 
    
 });
+  
+document.addEventListener('DOMContentLoaded', function() {
+  const colorSelect = document.querySelector('#color-select');
+  const sizeSelect = document.querySelector('#size-select');
+  const addToCartButton = document.querySelector('#add-product');
+
+  let selectedColor = null;
+  let selectedSize = null;
+  let variantId = null;
+
+  // Parse variants data from the script tag
+  const variantsData = JSON.parse(document.querySelector('#variants-data').textContent);
+
+  // Track selected color
+  colorSelect.addEventListener('click', function(event) {
+    if (event.target.tagName === 'LI' || event.target.tagName === 'SPAN' || event.target.tagName === 'P') {
+      const selectedElement = event.target.closest('li');
+      selectedColor = selectedElement.getAttribute('value');
+      updateVariantId();
+    }
+  });
+
+  // Track selected size
+  sizeSelect.addEventListener('change', function() {
+    selectedSize = sizeSelect.options[sizeSelect.selectedIndex].value;
+    updateVariantId();
+  });
+
+  // Function to update the variant ID based on selected color and size
+  function updateVariantId() {
+    if (selectedColor && selectedSize) {
+      const matchingVariant = variantsData.find(variant => variant.option1 === selectedSize && variant.option2 === selectedColor);
+      if (matchingVariant) {
+        variantId = matchingVariant.id;
+      }
+    }
+  }
+
+  // Add to Cart button click event
+  addToCartButton.addEventListener('click', function(event) {
+    event.preventDefault();
+    if (variantId) {
+      fetch('/cart/add.js', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Requested-With': 'XMLHttpRequest'
+        },
+        body: JSON.stringify({ id: variantId, quantity: 1 })
+      })
+      .then(response => response.json())
+      .then(data => {
+        // Handle successful add to cart action, e.g., update cart icon, show notification
+        console.log('Product added to cart:', data);
+      })
+      .catch(error => {
+        console.error('Error adding product to cart:', error);
+      });
+    } else {
+      alert('Please select a color and size.');
+    }
+  });
+});
+
 </script>
 
