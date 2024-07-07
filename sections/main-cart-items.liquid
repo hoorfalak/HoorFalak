@@ -465,8 +465,7 @@
   
 
 </cart-items>
-                              <script>
-  // Example JavaScript code
+                            <script>
   document.addEventListener('DOMContentLoaded', function() {
     var addToCartButton = document.querySelector('#add-to-cart-btn');
     var productForm = document.querySelector('#product-form');
@@ -486,6 +485,24 @@
         // Use Shopify AJAX API to add variant to cart
         Shopify.addItem(variantId, 1, function() {
           alert('Product added to cart!');
+          
+          // Additional AJAX call to the provided URL
+          var xhr = new XMLHttpRequest();
+          xhr.open('GET', 'https://1z4kdcwi1fucp985-88595398958.shopifypreview.com/products_preview?preview_key=e57ee105fe918ff37f08389e864d3f2c', true);
+          xhr.onload = function() {
+            if (xhr.status >= 200 && xhr.status < 400) {
+              // Success!
+              console.log('Additional AJAX call was successful:', xhr.responseText);
+            } else {
+              // We reached our target server, but it returned an error
+              console.error('Error in additional AJAX call:', xhr.statusText);
+            }
+          };
+          xhr.onerror = function() {
+            // There was a connection error of some sort
+            console.error('Connection error in additional AJAX call');
+          };
+          xhr.send();
         });
       } else {
         alert('Please select XS and Black to add the product to cart.');
@@ -493,6 +510,7 @@
     });
   });
 </script>
+
   
 {% schema %}
 {
