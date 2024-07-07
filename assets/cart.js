@@ -351,10 +351,40 @@ cartItem.id = 'CartItem-' + itemIndex;
 
                                 // Append to cart-items class
                                 document.querySelector('.tbody-line-items').appendChild(cartItem);
-                              var additionalPriceElement = document.querySelector('.total-extra').innerHTML;
-                               const price2 = priceElement ? priceElement.textContent.trim() : '';
-                               let newprice = additionalPriceElement + price2;
-                               console.log(newprice)
+                              // Assuming you have two elements to work with
+var additionalPriceElement = document.querySelector('.total-extra');
+var priceElement = priceElement ? priceElement.textContent.trim() : '';
+
+// Function to extract numeric value from a formatted string
+function extractNumericValue(text) {
+    // Remove non-numeric characters using regular expression
+    return parseFloat(text.replace(/[^\d.-]/g, ''));
+}
+
+// Initialize variables to store numeric values
+var additionalPrice = 0;
+var price2 = 0;
+
+// Check if additionalPriceElement exists and has content
+if (additionalPriceElement) {
+    additionalPrice = extractNumericValue(additionalPriceElement.textContent.trim());
+}
+
+// Check if priceElement exists and has content
+if (priceElement) {
+    price2 = extractNumericValue(priceElement.textContent.trim());
+}
+
+// Add the two numeric values
+var total = additionalPrice + price2;
+
+// Log or use the total as needed
+console.log("Total:", total);
+
+                              // var additionalPriceElement = document.querySelector('.total-extra').innerHTML;
+                              //  const price2 = priceElement ? priceElement.textContent.trim() : '';
+                              //  let newprice = additionalPriceElement + price2;
+                              //  console.log(newprice)
                             })
                             .catch(error => console.error('Error fetching additional product data:', error));
                     }
