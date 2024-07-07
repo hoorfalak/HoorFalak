@@ -14,42 +14,6 @@
   </div>
 </div>
 <style>
-  /* Style the popup */
-.popup {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
-
-.popup-content {
-    background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
-}
-
-/* Style the close button */
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
 
   img.plus-popup-icon {
     position: absolute;
@@ -71,31 +35,6 @@
 }
 </style>
 <script>
- document.addEventListener('DOMContentLoaded', function() {
-    // Get the image and popup elements
-    var image = document.querySelector('.popupadd');
-    var popup = document.getElementById('popup');
-    var closeBtn = document.querySelector('.close');
-
-    // When the image is clicked, open the popup
-    image.addEventListener('click', function() {
-        popup.style.display = 'block';
-      alert('hhhh')
-    });
-
-    // When the close button is clicked, close the popup
-    closeBtn.addEventListener('click', function() {
-        popup.style.display = 'none';
-    });
-
-    // When clicking outside the popup content, close the popup
-    window.addEventListener('click', function(event) {
-        if (event.target === popup) {
-            popup.style.display = 'none';
-        }
-    });
-   alert('ww')
-});
 
 </script>
 {% schema %}
