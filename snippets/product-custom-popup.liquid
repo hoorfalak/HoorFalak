@@ -506,11 +506,46 @@ document.addEventListener('DOMContentLoaded', function() {
                         const selectedOption = sizeSelect.options[sizeSelect.selectedIndex];
                         
                         // Get the value and data-variant-id of the selected option
-                        const value = selectedOption.value;
+                        const sizeValue = selectedOption.value;
                         const variantId = selectedOption.getAttribute('data-variant-id');
                         
                         // Log the value and data-variant-id to the console
-                        console.log(`Selected size: ${value}, Variant ID: ${variantId}`);
+                        console.log(`Selected size: ${sizeValue}, Variant ID: ${variantId}`);
+                    });
+                }
+                
+                // Form submission handling
+                const productForm = popupbox.querySelector('product-form');
+                
+                if (productForm) {
+                    const addToCartButton = productForm.querySelector('.quick-add__submit');
+                    
+                    addToCartButton.addEventListener('click', function(event) {
+                        event.preventDefault();
+                        
+                        // Get selected color
+                        const selectedColor = popupbox.querySelector('.color-select li.active');
+                        const colorValue = selectedColor ? selectedColor.getAttribute('value') : '';
+                        
+                        // Get selected size
+                        const selectedSize = sizeSelect.options[sizeSelect.selectedIndex];
+                        const sizeValue = selectedSize ? selectedSize.value : '';
+                        const variantId = selectedSize ? selectedSize.getAttribute('data-variant-id') : '';
+                        
+                        // Update form fields with selected variants
+                        const idInput = productForm.querySelector('.product-variant-id');
+                        const sizeInput = productForm.querySelector('select[name="size"]');
+                        
+                        if (idInput) {
+                            idInput.value = variantId;
+                        }
+                        
+                        if (sizeInput) {
+                            sizeInput.value = sizeValue;
+                        }
+                        
+                        // Submit the form
+                        productForm.submit();
                     });
                 }
                 
@@ -528,5 +563,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 </script>
+
 
 
