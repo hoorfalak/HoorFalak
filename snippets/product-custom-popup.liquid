@@ -283,10 +283,12 @@
       </select>
       <label for="size-select">Sizes</label>
       <select name="size">
+        <option>jjj</option>
         {% assign seen_sizes = '' %}
         {% for variant in card_product.variants %}
           {% unless seen_sizes contains variant.option1 %}
             {% assign seen_sizes = seen_sizes | append: variant.option1 | append: ',' %}
+            
             <option value="{{ variant.id }}">{{ variant.option1 }}</option>
           {% endunless %}
         {% endfor %}
