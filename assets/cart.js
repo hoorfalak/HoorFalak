@@ -373,8 +373,8 @@ document.addEventListener('DOMContentLoaded', function() {
                             // Add the two numeric values
                             var total = additionalPrice + price2;
 
-                            console.log("Total:", "$"+ total + "  " +"CAD");
-                           additionalPriceElement.innerHTML == total
+                           console.log("Total:", "$" + total + " CAD");
+        additionalPriceElement.innerHTML = "$" + total.toFixed(2) + " CAD";
                             })
                             .catch(error => console.error('Error fetching additional product data:', error));
                     }
