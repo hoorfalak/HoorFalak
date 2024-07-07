@@ -200,11 +200,13 @@
           <strong>Variants:</strong>
           <ul>
             {% for variant in card_product.variants %}
-              {% if variant.option1.name == 'Size' %}
+              {% for options in variant.options %}
+              {% if options.name == 'Size' %}
               <li>
                 {{ variant.title }} 
               </li>
                 {% endif %}
+                {% endfor %}
             {% endfor %}
           </ul>
         </div>
