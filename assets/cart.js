@@ -353,7 +353,7 @@ cartItem.id = 'CartItem-' + itemIndex;
                                 document.querySelector('.tbody-line-items').appendChild(cartItem);
                               // Assuming you have two elements to work with
 var additionalPriceElement = document.querySelector('.total-extra');
-var priceElement2 = document.querySelector('.some-other-element');
+var priceElement2 = priceElement ? priceElement.textContent.trim() : '';
 
 // Function to extract numeric value from a formatted string
 function extractNumericValue(text) {
