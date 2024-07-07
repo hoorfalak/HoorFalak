@@ -213,7 +213,7 @@
       <div class="card__information pop-up-cont">
   <img src="https://cdn.shopify.com/s/files/1/0885/9539/8958/files/Group_1000008134.png?v=1720348134" class="close-popup-icon">
         <div class="pop-up-content">
-  <img src="{{ card_product.featured_media | image_url }}">
+  <img src="{{ card_product.featured_media | image_url }}" class="pop-up-pro-image">
     <h3
       class="card__heading{% if card_product.featured_media or settings.card_style == 'standard' %} h5{% endif %}"
       {% if card_product.featured_media or settings.card_style == 'card' %}
