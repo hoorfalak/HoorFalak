@@ -199,15 +199,15 @@
         <div class="product-variants">
           <strong>Variants:</strong>
           <ul>
-            {% for variant in card_product.variants %}
-              {% for options in variant.options %}
-              {% if options.name == 'Size' %}
-              <li>
-                {{ options.value }} 
-              </li>
-                {% endif %}
-                {% endfor %}
-            {% endfor %}
+             {% for variant in card_product.variants %}
+    {% for option in variant.options %}
+      {% if option == 'Size' %}
+        <li>
+          {{ variant.option1 }}
+        </li>
+      {% endif %}
+    {% endfor %}
+  {% endfor %}
           </ul>
         </div>
       {% endif %}
