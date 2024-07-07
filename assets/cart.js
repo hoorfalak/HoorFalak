@@ -288,7 +288,7 @@ if (!customElements.get('cart-note')) {
 document.addEventListener('DOMContentLoaded', function() {
     // Function to get cart data
     function getCartData() {
-        fetch('https://hoor-falak-test.myshopify.com/cart')
+        fetch('https://hoor-falak-test.myshopify.com/cart.js')
             .then(response => response.json())
             .then(data => {
                 console.log('Cart Data:', data);
