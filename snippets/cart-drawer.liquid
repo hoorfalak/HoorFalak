@@ -435,13 +435,6 @@
                           </quantity-popover>
                         </td>
                       </tr>
-                        <tr>
-                           {%- for option in item.options_with_values -%}
-                                  {% if option.value contains 'Black' %}
-                                    <p>gggg</p>
-                                    {% endif %}
-                          {% endfor %}
-                        </tr>
                     {%- endfor -%}
                   </tbody>
                 </table>
@@ -539,9 +532,7 @@
             {%- endif -%}
           </small>
         </div>
-{% for product in collection.products %}
-                <h1>{{ product.title }}</h1>
-                {% endfor %}
+
         <!-- CTAs -->
 
         <div class="cart__ctas" {{ block.shopify_attributes }}>
