@@ -68,7 +68,7 @@ ul.color-select li {
   .row-flex {
     display: flex;
 }
-  span.description p {
+  .column-2 span.description p {
     letter-spacing: -1% !important;
     font-size: 14px;
     line-height: 16.2px;
@@ -234,9 +234,7 @@ ul.color-select li {
         style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;"
       >
         {%- if card_product.featured_media -%}
-          <div class="card__media grid-product-media{% if image_shape and image_shape != 'default' %} shape--{{ image_shape }} color-{{ settings.card_color_scheme }} gradient{% endif %}">
-           <h1>hhhh</h1>
-            
+          <div class="card__media grid-product-media{% if image_shape and image_shape != 'default' %} shape--{{ image_shape }} color-{{ settings.card_color_scheme }} gradient{% endif %}">        
             <div class="media media--transparent22">
              <img src="https://cdn.shopify.com/s/files/1/0885/9539/8958/files/Component_156_1.png?v=1720037743" class="plus-popup-icon">
               <img
