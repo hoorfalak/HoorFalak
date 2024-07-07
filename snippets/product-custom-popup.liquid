@@ -297,26 +297,19 @@
 {%- else -%}
 {%- endif -%}
 <script>
-document.addEventListener('DOMContentLoaded', function() {
+ document.addEventListener('DOMContentLoaded', function() {
     const popupIcons = document.querySelectorAll('.plus-popup-icon');
-    const popupbox = document.getElementById('grid-pro-popup');
-
+   const popupbox = document.getElementById('grid-pro-popup');
     popupIcons.forEach(icon => {
-        icon.addEventListener('click', function() {
-            console.log('Image clicked!');
-            popupbox.style.display = "block";
-            document.body.style.overflow = 'hidden';
-        });
-    });
+      icon.addEventListener('click', function() {
+        console.log('Image clicked!');
+      popupbox.style.display = "block";
+        document.body.style.overflow = 'hidden';
 
-    const closeicon = document.querySelector('.close-popup-icon');
-    closeicon.addEventListener('click', function() {
-        console.log('popup-close');
-        popupbox.style.display = "none";
-        document.body.style.overflow = 'auto';
+      });
     });
-});
-
+   
+  });
 
 </script>
 
