@@ -446,4 +446,21 @@
 </div> -->
 {%- else -%}
 {%- endif -%}
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+  const popupIcon = document.querySelector('.plus-popup-icon');
+  const popupAdd = document.querySelector('.popupadd');
+
+  if (popupIcon && popupAdd) {
+    popupIcon.addEventListener('click', function () {
+      if (popupAdd.style.display === 'none' || popupAdd.style.display === '') {
+        popupAdd.style.display = 'block';
+      } else {
+        popupAdd.style.display = 'none';
+      }
+    });
+  }
+});
+
+</script>
 
